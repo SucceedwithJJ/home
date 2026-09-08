@@ -102,21 +102,107 @@
       transition: background 0.3s ease;
     }
 
+    /* LEFT-HAND VERTICAL CREATIVE RAIL */
+    .left-rail {
+      position: fixed;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .rail-track {
+      background: var(--dock-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      padding: 1.2rem 0.6rem;
+      border-radius: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .rail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--muted);
+      position: relative;
+    }
+
+    .rail-pip {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dim);
+      transition: all 0.3s var(--spring);
+    }
+
+    .rail-label {
+      position: absolute;
+      left: 1.8rem;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-8px);
+      transition: all 0.25s ease;
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .rail-item:hover .rail-pip {
+      background: var(--accent);
+      transform: scale(1.4);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .rail-item:hover .rail-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .rail-lock-btn {
+      background: transparent;
+      border: none;
+      color: var(--dim);
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 0.4rem;
+      transition: color 0.2s ease;
+    }
+    .rail-lock-btn:hover { color: var(--accent); }
+
+    /* Centered Canvas Container */
     .wrapper {
-      max-width: 1100px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 0 1.5rem 8rem;
       position: relative;
       z-index: 2;
     }
 
-    /* Floating Dock containing the CA / Life Coach switch directly */
+    /* Floating Dock */
     .dock-holder {
       position: sticky;
       top: 1.5rem;
       display: flex;
       justify-content: center;
-      z-index: 1000;
+      z-index: 999;
       margin: 1.5rem 0 3.5rem;
     }
 
@@ -124,7 +210,6 @@
       background: var(--dock-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       padding: 0.35rem 0.5rem;
       border-radius: 100px;
       display: flex;
@@ -158,9 +243,7 @@
       transition: all 0.25s ease;
     }
 
-    .nav-tab:hover {
-      color: var(--text);
-    }
+    .nav-tab:hover { color: var(--text); }
 
     .nav-tab.active {
       color: #000000;
@@ -182,9 +265,7 @@
       border-radius: 50px;
       transition: all 0.2s ease;
     }
-    .dock-link:hover {
-      color: var(--text);
-    }
+    .dock-link:hover { color: var(--text); }
 
     .theme-trigger {
       width: 36px;
@@ -199,8 +280,49 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .theme-trigger:hover {
-      background: var(--card-inner);
+    .theme-trigger:hover { background: var(--card-inner); }
+
+    /* OWNER HUD (Invisible until logged in) */
+    .owner-hud {
+      display: none;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: rgba(18, 20, 26, 0.9);
+      border: 1px solid var(--accent);
+      backdrop-filter: blur(20px);
+      padding: 0.6rem 1rem;
+      border-radius: 100px;
+      z-index: 2000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .owner-hud.visible { display: flex; }
+
+    .owner-badge {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .owner-action-btn {
+      background: var(--accent);
+      color: #07090D;
+      border: none;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.4rem 0.85rem;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .editable-outline {
+      outline: 1px dashed var(--accent) !important;
+      cursor: text !important;
     }
 
     /* Hero */
@@ -312,10 +434,7 @@
       font-size: 1rem;
       transition: all 0.2s ease;
     }
-    .nav-arrow:hover {
-      background: var(--text);
-      color: var(--bg);
-    }
+    .nav-arrow:hover { background: var(--text); color: var(--bg); }
 
     /* Carousel */
     .slider-viewport {
@@ -544,14 +663,14 @@
     footer a { color: inherit; text-decoration: none; }
     footer a:hover { color: var(--text); }
 
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
+      .left-rail { display: none; }
       .form-grid { grid-template-columns: 1fr; }
       .full-row { grid-column: span 1; }
       .memo-card { width: 300px; min-height: 350px; }
       .intake-card { padding: 2rem 1.5rem; }
       .search-panel { flex-direction: column; align-items: stretch; }
       .search-input-wrap { max-width: 100%; }
-      .nav-tab { padding: 0.45rem 0.8rem; font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -561,14 +680,40 @@
   <div class="space-grid"></div>
   <div class="spotlight" id="spotlight"></div>
 
-  <div class="wrapper">
+  <!-- CREATIVE LEFT-HAND WAYPOINT RAIL -->
+  <aside class="left-rail">
+    <div class="rail-track">
+      <a href="#top" class="rail-item" title="Overview">
+        <span class="rail-pip"></span>
+        <span class="rail-label">Top Brief</span>
+      </a>
+      <a href="#articles-section" class="rail-item" title="Articles">
+        <span class="rail-pip"></span>
+        <span class="rail-label">Articles</span>
+      </a>
+      <a href="#work-section" class="rail-item" title="Work With Me">
+        <span class="rail-pip"></span>
+        <span class="rail-label">Work With Me</span>
+      </a>
+      <button class="rail-lock-btn" onclick="promptOwnerLogin()" title="Owner Access (Ctrl+E)">🔒</button>
+    </div>
+  </aside>
 
-    <!-- FLOATING DOCK: Contains CA / Life Coaching directly in the bar -->
+  <!-- OWNER ACTIVE HUD -->
+  <div class="owner-hud" id="owner-hud">
+    <span class="owner-badge">⚡ Owner Mode Active</span>
+    <button class="owner-action-btn" onclick="openNewArticleModal()">+ Add Article</button>
+    <button class="owner-action-btn" onclick="saveLiveEdits()" style="background:var(--text);color:var(--bg);">Save Edits</button>
+    <button class="owner-action-btn" onclick="logoutOwner()" style="background:transparent;color:var(--dim);border:1px solid var(--border);">Exit</button>
+  </div>
+
+  <div class="wrapper" id="top">
+
+    <!-- FLOATING DOCK: Directly switches between Chartered Accountant and Life Coaching -->
     <div class="dock-holder">
       <nav class="island-dock">
         <a href="#" class="dock-brand">JJ</a>
 
-        <!-- Section Switchers directly inside the dock -->
         <button class="nav-tab active" id="tab-ca" onclick="switchDomain('ca')">
           <span>✦</span> Chartered Accountant
         </button>
@@ -581,25 +726,25 @@
       </nav>
     </div>
 
-    <!-- ================= 1. CHARTERED ACCOUNTANT VIEW (FDD ARTICLES) ================= -->
+    <!-- ================= 1. CHARTERED ACCOUNTANT VIEW ================= -->
     <div class="view-panel active-view" id="panel-ca">
       
       <header class="hero">
         <div class="authority-badge">
           <span class="pulsing-pip"></span>
-          <span>Chartered Accountant · Financial Due Diligence Specialist</span>
+          <span class="live-edit" id="ca-badge">Chartered Accountant · Financial Due Diligence Specialist</span>
         </div>
-        <h1 class="hero-title">
+        <h1 class="hero-title live-edit" id="ca-title">
           Uncovering deal reality.<br />
           <em>Guarding transaction capital.</em>
         </h1>
-        <p class="hero-summary">
+        <p class="hero-summary live-edit" id="ca-desc">
           Independent buy-side diligence counsel specializing in Quality of Earnings (QoE) analysis, EBITDA bridge normalization, and closing Net Working Capital mechanisms.
         </p>
       </header>
 
       <!-- FDD Articles Section -->
-      <section>
+      <section id="articles-section">
         <div class="search-panel">
           <div>
             <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Transaction Vault</div>
@@ -609,7 +754,7 @@
           <div style="display:flex;align-items:center;gap:1rem;">
             <div class="search-input-wrap">
               <span style="color:var(--dim);font-size:0.9rem;">⌕</span>
-              <input type="text" placeholder="Search FDD articles & terms..." oninput="searchMemos('ca-track', this.value)" />
+              <input type="text" placeholder="Search FDD articles..." oninput="searchMemos('ca-track', this.value)" />
             </div>
             <div class="carousel-arrows">
               <button class="nav-arrow" onclick="scrollTrack('ca-track', 'left')">←</button>
@@ -619,64 +764,14 @@
         </div>
 
         <div class="slider-viewport" id="ca-track">
-          <div class="slider-track">
-            
-            <article class="memo-card" onclick="openMemo(0)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Due Diligence</span>
-                  <span class="read-time">5 MIN READ</span>
-                </div>
-                <h3 class="memo-title">The Phantom EBITDA: Spotting Hidden Margin Compression</h3>
-                <p class="memo-excerpt">Three subtle operational add-backs commonly disguised as non-recurring adjustments in lower middle-market CIMs.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-            <article class="memo-card" onclick="openMemo(1)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Due Diligence</span>
-                  <span class="read-time">6 MIN READ</span>
-                </div>
-                <h3 class="memo-title">Net Working Capital Pegs: Guarding the Purchase Price</h3>
-                <p class="memo-excerpt">Preventing post-closing cash leakage caused by seasonal inventory build-ups in definitive purchase agreements.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-            <article class="memo-card" onclick="openMemo(2)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Due Diligence</span>
-                  <span class="read-time">7 MIN READ</span>
-                </div>
-                <h3 class="memo-title">Debt &amp; Debt-Like Traps: Beyond Bank Borrowings</h3>
-                <p class="memo-excerpt">Accrued bonuses, unremitted taxes, and customer rebate liabilities that quietly erode net equity consideration.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-            <article class="memo-card" onclick="openMemo(3)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Due Diligence</span>
-                  <span class="read-time">8 MIN READ</span>
-                </div>
-                <h3 class="memo-title">Revenue Quality &amp; Customer Concentration Vulnerabilities</h3>
-                <p class="memo-excerpt">How to audit churn cohort resilience when top 3 accounts represent over 40% of total trailing gross margin.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-          </div>
+          <div class="slider-track" id="ca-articles-container"></div>
         </div>
       </section>
 
       <!-- Work With Me: CA Mandates -->
-      <section class="intake-card">
-        <h3>Retain Deal Advisory / FDD Mandates</h3>
-        <p>Available for select buy-side transaction diligence, seller readiness assessments, and quality of earnings audits.</p>
+      <section class="intake-card" id="work-section">
+        <h3 class="live-edit" id="ca-form-title">Retain Deal Advisory / FDD Mandates</h3>
+        <p class="live-edit" id="ca-form-desc">Available for select buy-side transaction diligence, seller readiness assessments, and quality of earnings audits.</p>
 
         <form class="form-grid" onsubmit="event.preventDefault(); alert('Mandate inquiry recorded. We will respond within 24 hours.');">
           <div class="form-ctrl">
@@ -714,13 +809,13 @@
       <header class="hero">
         <div class="authority-badge">
           <span class="pulsing-pip"></span>
-          <span>Executive Mindset &amp; Cognitive Architecture</span>
+          <span class="live-edit" id="coach-badge">Executive Mindset &amp; Cognitive Architecture</span>
         </div>
-        <h1 class="hero-title">
+        <h1 class="hero-title live-edit" id="coach-title">
           Master the inner narrative.<br />
           <em>Lead with high conviction under ambiguity.</em>
         </h1>
-        <p class="hero-summary">
+        <p class="hero-summary live-edit" id="coach-desc">
           Cognitive coaching designed specifically for finance professionals, corporate leaders, and founders struggling with analytical paralysis and deal exhaustion.
         </p>
       </header>
@@ -746,52 +841,14 @@
         </div>
 
         <div class="slider-viewport" id="coach-track">
-          <div class="slider-track">
-            
-            <article class="memo-card" onclick="openMemo(4)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Mindset</span>
-                  <span class="read-time">4 MIN READ</span>
-                </div>
-                <h3 class="memo-title">The Analytical Paralyzer: Why Precision Kills Strategic Speed</h3>
-                <p class="memo-excerpt">Auditors are wired for zero variance. Why executing with 70% data completeness produces higher asymmetric career returns.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-            <article class="memo-card" onclick="openMemo(5)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Mindset</span>
-                  <span class="read-time">7 MIN READ</span>
-                </div>
-                <h3 class="memo-title">The Psychology of Closing: Staying Grounded Under Pressure</h3>
-                <p class="memo-excerpt">How prolonged transaction fatigue drives deal teams into uncalculated concessions during late-night closing sprints.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-            <article class="memo-card" onclick="openMemo(6)">
-              <div>
-                <div class="memo-meta">
-                  <span class="domain-badge">Mindset</span>
-                  <span class="read-time">5 MIN READ</span>
-                </div>
-                <h3 class="memo-title">Rebuilding Identity Beyond the Ledger</h3>
-                <p class="memo-excerpt">The psychological transition from technical performer to visionary leader without falling into imposter syndrome.</p>
-              </div>
-              <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-            </article>
-
-          </div>
+          <div class="slider-track" id="coach-articles-container"></div>
         </div>
       </section>
 
       <!-- Work With Me: Life Coaching Discovery -->
       <section class="intake-card">
-        <h3>Book an Executive Mindset Discovery Session</h3>
-        <p>Confidential cognitive calibration sessions for professionals navigating high-pressure decisions and leadership transitions.</p>
+        <h3 class="live-edit" id="coach-form-title">Book an Executive Mindset Discovery Session</h3>
+        <p class="live-edit" id="coach-form-desc">Confidential cognitive calibration sessions for professionals navigating high-pressure decisions and leadership transitions.</p>
 
         <form class="form-grid" onsubmit="event.preventDefault(); alert('Discovery application recorded. We will be in touch shortly.');">
           <div class="form-ctrl">
@@ -841,6 +898,40 @@
     </div>
   </div>
 
+  <!-- OWNER: Add Article Modal -->
+  <div class="reader-modal" id="new-article-modal" onclick="closeNewModalOnBackdrop(event)">
+    <div class="reader-frame" style="max-width:620px;">
+      <button class="close-btn" onclick="dismissNewModal()">✕</button>
+      <h3 style="font-family:'Newsreader',serif;font-size:1.8rem;margin-bottom:1.5rem;">Publish New Article</h3>
+      <form id="new-article-form" onsubmit="submitNewArticle(event)" style="display:flex;flex-direction:column;gap:1rem;">
+        <div>
+          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">DOMAIN SECTION</label>
+          <select id="new-art-domain" style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;">
+            <option value="ca">Financial Due Diligence (CA)</option>
+            <option value="coach">Mindset &amp; Coaching</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">TITLE</label>
+          <input type="text" id="new-art-title" placeholder="Enter article headline..." required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;" />
+        </div>
+        <div>
+          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">READ TIME</label>
+          <input type="text" id="new-art-time" placeholder="e.g., 5 MIN READ" required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;" />
+        </div>
+        <div>
+          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">SUMMARY (CARD TEASER)</label>
+          <input type="text" id="new-art-excerpt" placeholder="1-2 sentence preview..." required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;" />
+        </div>
+        <div>
+          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">FULL ARTICLE BODY (HTML/PARAGRAPHS)</label>
+          <textarea id="new-art-body" rows="6" placeholder="Write full article here..." required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;font-family:inherit;"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" style="margin-top:0.5rem;">Publish to Website ↗</button>
+      </form>
+    </div>
+  </div>
+
   <script>
     // 1. Mouse Spotlight
     window.addEventListener('mousemove', (e) => {
@@ -854,7 +945,7 @@
       document.getElementById('progress-strip').style.width = (document.documentElement.scrollTop / h) * 100 + '%';
     });
 
-    // 3. Directly switch between CA and Life Coaching from the dock
+    // 3. Domain Switcher
     function switchDomain(domain) {
       document.documentElement.setAttribute('data-active', domain);
 
@@ -876,7 +967,98 @@
       }
     }
 
-    // 4. Live Search
+    // 4. Default Articles Database (Dynamic Storage in LocalStorage)
+    const defaultMemos = [
+      {
+        id: 0,
+        domain: "ca",
+        badge: "Due Diligence",
+        readTime: "5 MIN READ",
+        title: "The Phantom EBITDA: Spotting Hidden Margin Compression",
+        excerpt: "Three subtle operational add-backs commonly disguised as non-recurring adjustments in lower middle-market CIMs.",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In lower middle-market transactions, Confidential Information Memorandums routinely claim run-rate adjustments that present an overly optimistic earnings profile. Discretionary founder costs, one-time software licenses, and supply chain rebates frequently mask genuine cost inflation.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>As buy-side advisors, our task is not merely reconciling numbers back to the trial balance; it is probing recurring operational reality. Normalizing EBITDA requires rebuilding the cost baseline with market-rate executive compensations, trailing freight variances, and maintenance capex.</p>"
+      },
+      {
+        id: 1,
+        domain: "ca",
+        badge: "Due Diligence",
+        readTime: "6 MIN READ",
+        title: "Net Working Capital Pegs: Guarding the Purchase Price",
+        excerpt: "Preventing post-closing cash leakage caused by seasonal inventory build-ups in definitive purchase agreements.",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>The Working Capital Reference Target is frequently negotiated in the final stretch of agreement drafting, yet it possesses the power to shift purchase considerations dollar-for-dollar.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Relying on a static 12-month trailing average often penalizes rapidly expanding targets or yields windfall concessions to seasonal sellers. We construct normalized windows factoring in intra-month inventory peaks and extended supplier trade payables.</p>"
+      },
+      {
+        id: 2,
+        domain: "ca",
+        badge: "Due Diligence",
+        readTime: "7 MIN READ",
+        title: "Debt & Debt-Like Traps: Beyond Bank Borrowings",
+        excerpt: "Accrued bonuses, unremitted taxes, and customer rebate liabilities that quietly erode net equity consideration.",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Too many deal models focus strictly on funded debt balances. But true balance sheet value leakage hides in accrued bonuses, warranty reserves, deferred vendor commitments, and underfunded severance liabilities.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>A thorough due diligence process recategorizes these hidden commitments as dollar-for-dollar reductions to the equity purchase price.</p>"
+      },
+      {
+        id: 3,
+        domain: "coach",
+        badge: "Mindset",
+        readTime: "4 MIN READ",
+        title: "The Analytical Paralyzer: Why Precision Kills Strategic Speed",
+        excerpt: "Auditors are wired for zero variance. Why executing with 70% data completeness produces higher asymmetric career returns.",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Chartered Accountants and finance operators are trained in environments where errors carry severe regulatory consequences. This creates an unexamined assumption: that executing without complete datasets constitutes an unacceptable risk.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In corporate leadership, the cost of delayed action often exceeds the cost of a directional error. Moving forward decisively with 70% data fidelity is the fundamental dividing line between an auditor and an executive operator.</p>"
+      },
+      {
+        id: 4,
+        domain: "coach",
+        badge: "Mindset",
+        readTime: "7 MIN READ",
+        title: "The Psychology of Closing: Staying Grounded Under Pressure",
+        excerpt: "How prolonged transaction fatigue drives deal teams into uncalculated concessions during late-night closing sprints.",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Deal fatigue is an unquantified liability. As closing timelines drag past 90 days, cognitive depletion leads deal teams into hasty compromises on escrow periods and indemnification caps.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Maintaining strategic leverage requires structural cognitive boundaries: separating negotiation teams into analytical and closing units to safeguard deal economics.</p>"
+      },
+      {
+        id: 5,
+        domain: "coach",
+        badge: "Mindset",
+        readTime: "5 MIN READ",
+        title: "Rebuilding Identity Beyond the Ledger",
+        excerpt: "The psychological transition from technical performer to visionary leader without falling into imposter syndrome.",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>High-performing professionals often anchor their entire sense of worth to flawlessness and technical correctness. When stepping into leadership roles where ambiguity rules, this creates internal friction and self-doubt.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>True executive authority is not knowing every answer—it is possessing the grounded psychological resilience to hold space when no clean answers exist.</p>"
+      }
+    ];
+
+    let memos = JSON.parse(localStorage.getItem('jj_custom_memos')) || defaultMemos;
+
+    function renderArticles() {
+      const caContainer = document.getElementById('ca-articles-container');
+      const coachContainer = document.getElementById('coach-articles-container');
+      caContainer.innerHTML = '';
+      coachContainer.innerHTML = '';
+
+      memos.forEach((item, index) => {
+        const cardHTML = `
+          <article class="memo-card" onclick="openMemo(${index})">
+            <div>
+              <div class="memo-meta">
+                <span class="domain-badge">${item.badge}</span>
+                <span class="read-time">${item.readTime}</span>
+              </div>
+              <h3 class="memo-title">${item.title}</h3>
+              <p class="memo-excerpt">${item.excerpt}</p>
+            </div>
+            <div class="memo-read-cta">Read Dispatch <span>→</span></div>
+          </article>
+        `;
+
+        if (item.domain === 'ca') {
+          caContainer.innerHTML += cardHTML;
+        } else {
+          coachContainer.innerHTML += cardHTML;
+        }
+      });
+    }
+
+    renderArticles();
+
+    // 5. Live Search Engine
     function searchMemos(trackId, query) {
       const track = document.getElementById(trackId);
       const cards = track.querySelectorAll('.memo-card');
@@ -888,7 +1070,7 @@
       });
     }
 
-    // 5. Kinetic Drag Carousel
+    // 6. Kinetic Drag Carousel
     function scrollTrack(id, dir) {
       const el = document.getElementById(id);
       el.scrollBy({ left: dir === 'left' ? -380 : 380, behavior: 'smooth' });
@@ -912,7 +1094,7 @@
       });
     });
 
-    // 6. Theme Toggle
+    // 7. Day / Night Switcher
     const themeBtn = document.getElementById('theme-btn');
     const doc = document.documentElement;
 
@@ -927,49 +1109,11 @@
       setAtmosphere(doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
 
-    // 7. Reader Data
-    const memos = [
-      {
-        tag: "FINANCIAL DUE DILIGENCE · 5 MIN",
-        title: "The Phantom EBITDA: Spotting Hidden Margin Compression",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In lower middle-market transactions, Confidential Information Memorandums routinely claim run-rate adjustments that present an overly optimistic earnings profile. Discretionary founder costs, one-time software licenses, and supply chain rebates frequently mask genuine cost inflation.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>As buy-side advisors, our task is not merely reconciling numbers back to the trial balance; it is probing recurring operational reality. Normalizing EBITDA requires rebuilding the cost baseline with market-rate executive compensations, trailing freight variances, and maintenance capex.</p>"
-      },
-      {
-        tag: "TRANSACTION STRUCTURING · 6 MIN",
-        title: "Net Working Capital Pegs: Guarding the Purchase Price",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>The Working Capital Reference Target is frequently negotiated in the final stretch of agreement drafting, yet it possesses the power to shift purchase considerations dollar-for-dollar.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Relying on a static 12-month trailing average often penalizes rapidly expanding targets or yields windfall concessions to seasonal sellers. We construct normalized windows factoring in intra-month inventory peaks and extended supplier trade payables.</p>"
-      },
-      {
-        tag: "DEAL RISKS · 7 MIN",
-        title: "Debt & Debt-Like Traps: Beyond Bank Borrowings",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Too many deal models focus strictly on funded debt balances. But true balance sheet value leakage hides in accrued bonuses, warranty reserves, deferred vendor commitments, and underfunded severance liabilities.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>A thorough due diligence process recategorizes these hidden commitments as dollar-for-dollar reductions to the equity purchase price.</p>"
-      },
-      {
-        tag: "COMMERCIAL REVENUE DUE DILIGENCE · 8 MIN",
-        title: "Revenue Quality & Customer Concentration Vulnerabilities",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Evaluating historical top-line growth is insufficient without dissecting gross margin contribution per account. In businesses where the top 3 clients account for over 40% of revenue, any contract renewal ambiguity represents an uncalculated purchase price discount.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>We model individual churn rates, margin attrition by tier, and contract expiration schedules to stress-test target sustainability.</p>"
-      },
-      {
-        tag: "COGNITIVE ARCHITECTURE · 4 MIN",
-        title: "The Analytical Paralyzer: Why Precision Kills Strategic Speed",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Chartered Accountants and finance operators are trained in environments where errors carry severe regulatory consequences. This creates an unexamined assumption: that executing without complete datasets constitutes an unacceptable risk.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In corporate leadership, the cost of delayed action often exceeds the cost of a directional error. Moving forward decisively with 70% data fidelity is the fundamental dividing line between an auditor and an executive operator.</p>"
-      },
-      {
-        tag: "LEADERSHIP PSYCHOLOGY · 7 MIN",
-        title: "The Psychology of Closing: Staying Grounded Under Pressure",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Deal fatigue is an unquantified liability. As closing timelines drag past 90 days, cognitive depletion leads deal teams into hasty compromises on escrow periods and indemnification caps.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Maintaining strategic leverage requires structural cognitive boundaries: separating negotiation teams into analytical and closing units to safeguard deal economics.</p>"
-      },
-      {
-        tag: "IDENTITY & MASTERY · 5 MIN",
-        title: "Rebuilding Identity Beyond the Ledger",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>High-performing professionals often anchor their entire sense of worth to flawlessness and technical correctness. When stepping into leadership roles where ambiguity rules, this creates internal friction and self-doubt.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>True executive authority is not knowing every answer—it is possessing the grounded psychological resilience to hold space when no clean answers exist.</p>"
-      }
-    ];
-
+    // 8. Article Reader
     function openMemo(idx) {
       const m = memos[idx];
       document.getElementById('reader-content').innerHTML = `
-        <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.75rem;">${m.tag}</div>
+        <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.75rem;">${m.badge} · ${m.readTime}</div>
         <h2 style="font-family:'Newsreader',serif;font-size:2.2rem;font-weight:500;line-height:1.15;margin-bottom:1.5rem;">${m.title}</h2>
         <div>${m.body}</div>
         <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
@@ -980,13 +1124,111 @@
       document.body.style.overflow = 'hidden';
     }
 
-    function closeOnBackdrop(e) {
-      if (e.target.id === 'reader-modal') dismissReader();
+    function closeOnBackdrop(e) { if (e.target.id === 'reader-modal') dismissReader(); }
+    function dismissReader() { document.getElementById('reader-modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+
+    // ================= 9. OWNER ENGINE: LIVE EDITING & IN-PLACE CMS =================
+    const MASTER_KEY = "admin123"; // Change this to your preferred private password
+
+    function promptOwnerLogin() {
+      const pass = prompt("Enter Owner Passkey:");
+      if (pass === MASTER_KEY) {
+        enableOwnerMode();
+      } else if (pass !== null) {
+        alert("Invalid Passkey.");
+      }
     }
 
-    function dismissReader() {
-      document.getElementById('reader-modal').style.display = 'none';
-      document.body.style.overflow = 'auto';
+    // Shortcut: Ctrl+E or Cmd+E opens Owner prompt
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
+        e.preventDefault();
+        promptOwnerLogin();
+      }
+    });
+
+    function enableOwnerMode() {
+      sessionStorage.setItem('jj_owner_authenticated', 'true');
+      document.getElementById('owner-hud').classList.add('visible');
+
+      // Make all live-edit elements editable
+      document.querySelectorAll('.live-edit').forEach(el => {
+        el.contentEditable = "true";
+        el.classList.add('editable-outline');
+      });
+
+      alert("Owner Mode Active! Click on any headline or text to edit directly. Click '+ Add Article' to post new writings.");
+    }
+
+    function logoutOwner() {
+      sessionStorage.removeItem('jj_owner_authenticated');
+      document.getElementById('owner-hud').classList.remove('visible');
+      document.querySelectorAll('.live-edit').forEach(el => {
+        el.contentEditable = "false";
+        el.classList.remove('editable-outline');
+      });
+      location.reload();
+    }
+
+    function saveLiveEdits() {
+      const savedTexts = {};
+      document.querySelectorAll('.live-edit').forEach(el => {
+        savedTexts[el.id] = el.innerHTML;
+      });
+      localStorage.setItem('jj_live_texts', JSON.stringify(savedTexts));
+      alert("All text edits saved successfully to your website!");
+    }
+
+    // Load saved live edits on start
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTexts = JSON.parse(localStorage.getItem('jj_live_texts'));
+      if (savedTexts) {
+        for (const [id, content] of Object.entries(savedTexts)) {
+          const el = document.getElementById(id);
+          if (el) el.innerHTML = content;
+        }
+      }
+
+      if (sessionStorage.getItem('jj_owner_authenticated') === 'true') {
+        enableOwnerMode();
+      }
+    });
+
+    // Add Article Modal Functions
+    function openNewArticleModal() {
+      document.getElementById('new-article-modal').style.display = 'grid';
+    }
+    function closeNewModalOnBackdrop(e) {
+      if (e.target.id === 'new-article-modal') dismissNewModal();
+    }
+    function dismissNewModal() {
+      document.getElementById('new-article-modal').style.display = 'none';
+    }
+
+    function submitNewArticle(e) {
+      e.preventDefault();
+      const domain = document.getElementById('new-art-domain').value;
+      const title = document.getElementById('new-art-title').value;
+      const readTime = document.getElementById('new-art-time').value;
+      const excerpt = document.getElementById('new-art-excerpt').value;
+      const body = document.getElementById('new-art-body').value.replace(/\n/g, '<br/><br/>');
+
+      const newArt = {
+        id: Date.now(),
+        domain,
+        badge: domain === 'ca' ? 'Due Diligence' : 'Mindset',
+        readTime,
+        title,
+        excerpt,
+        body
+      };
+
+      memos.unshift(newArt);
+      localStorage.setItem('jj_custom_memos', JSON.stringify(memos));
+      renderArticles();
+      dismissNewModal();
+      document.getElementById('new-article-form').reset();
+      alert("Article published live!");
     }
   </script>
 </body>
