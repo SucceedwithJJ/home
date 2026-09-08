@@ -7,7 +7,7 @@
 
   <meta name="description" content="Financial Due Diligence & Executive Mindset Coaching." />
 
-  <!-- Fonts: Newsreader, Plus Jakarta Sans, Space Grotesk -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -110,7 +110,7 @@
       z-index: 2;
     }
 
-    /* Floating Dock */
+    /* Floating Dock containing the CA / Life Coach switch directly */
     .dock-holder {
       position: sticky;
       top: 1.5rem;
@@ -124,60 +124,66 @@
       background: var(--dock-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(20px);
-      padding: 0.35rem 0.55rem;
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.35rem 0.5rem;
       border-radius: 100px;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.3rem;
       box-shadow: var(--shadow);
     }
 
     .dock-brand {
       font-family: 'Space Grotesk', monospace;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 700;
       padding: 0.5rem 0.9rem;
       color: var(--text);
       text-decoration: none;
     }
 
-    .persona-toggle-btn {
+    .nav-tab {
       font-family: 'Space Grotesk', monospace;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #0B0D12;
-      background: var(--accent);
-      text-decoration: none;
-      padding: 0.5rem 1.2rem;
+      padding: 0.55rem 1.15rem;
       border-radius: 50px;
       border: none;
+      background: transparent;
+      color: var(--muted);
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
       transition: all 0.25s ease;
     }
-    .persona-toggle-btn:hover {
-      transform: scale(1.03);
-      filter: brightness(1.08);
+
+    .nav-tab:hover {
+      color: var(--text);
     }
 
-    .dock-btn {
+    .nav-tab.active {
+      color: #000000;
+      background: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+    [data-theme="light"] .nav-tab.active {
+      color: #FFFFFF;
+      background: #121316;
+    }
+
+    .dock-link {
       font-family: 'Space Grotesk', monospace;
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--muted);
       text-decoration: none;
-      padding: 0.5rem 0.9rem;
+      padding: 0.5rem 0.85rem;
       border-radius: 50px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
       transition: all 0.2s ease;
     }
-    .dock-btn:hover {
+    .dock-link:hover {
       color: var(--text);
-      background: var(--card-inner);
     }
 
     .theme-trigger {
@@ -187,6 +193,14 @@
       display: grid;
       place-content: center;
       border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .theme-trigger:hover {
+      background: var(--card-inner);
     }
 
     /* Hero */
@@ -243,7 +257,7 @@
       line-height: 1.7;
     }
 
-    /* Search & Filter Ribbon */
+    /* Search & Filter Header */
     .search-panel {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -303,7 +317,7 @@
       color: var(--bg);
     }
 
-    /* Articles Carousel & Grid */
+    /* Carousel */
     .slider-viewport {
       overflow-x: auto;
       scroll-behavior: smooth;
@@ -393,7 +407,7 @@
     }
     .memo-card:hover .memo-read-cta { gap: 0.8rem; }
 
-    /* Intake & Contact Form */
+    /* Intake Cards */
     .intake-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -511,7 +525,7 @@
       place-content: center;
     }
 
-    /* Perspective Display State */
+    /* View Panels */
     .view-panel { display: none; }
     .view-panel.active-view { display: block; }
 
@@ -537,6 +551,7 @@
       .intake-card { padding: 2rem 1.5rem; }
       .search-panel { flex-direction: column; align-items: stretch; }
       .search-input-wrap { max-width: 100%; }
+      .nav-tab { padding: 0.45rem 0.8rem; font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -548,23 +563,25 @@
 
   <div class="wrapper">
 
-    <!-- Inverted Navigation Island Dock -->
+    <!-- FLOATING DOCK: Contains CA / Life Coaching directly in the bar -->
     <div class="dock-holder">
       <nav class="island-dock">
         <a href="#" class="dock-brand">JJ</a>
 
-        <!-- Dynamic Switcher: If in CA mode, button invites to Life Coaching & vice-versa -->
-        <button class="persona-toggle-btn" id="persona-toggle" onclick="togglePersona()">
-          <span id="persona-icon">☀</span>
-          <span id="persona-label">Switch to Life Coaching</span>
+        <!-- Section Switchers directly inside the dock -->
+        <button class="nav-tab active" id="tab-ca" onclick="switchDomain('ca')">
+          <span>✦</span> Chartered Accountant
+        </button>
+        <button class="nav-tab" id="tab-coach" onclick="switchDomain('coach')">
+          <span>☀</span> Life Coaching
         </button>
 
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="dock-btn">LinkedIn ↗</a>
-        <button class="dock-btn theme-trigger" id="theme-btn" aria-label="Toggle Mode">☼</button>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="dock-link">LinkedIn ↗</a>
+        <button class="theme-trigger" id="theme-btn" aria-label="Toggle Mode">☼</button>
       </nav>
     </div>
 
-    <!-- ================= VIEW 1: CHARTERED ACCOUNTANT (FDD FOCUSED) ================= -->
+    <!-- ================= 1. CHARTERED ACCOUNTANT VIEW (FDD ARTICLES) ================= -->
     <div class="view-panel active-view" id="panel-ca">
       
       <header class="hero">
@@ -581,12 +598,12 @@
         </p>
       </header>
 
-      <!-- Search & Controls for FDD Section -->
+      <!-- FDD Articles Section -->
       <section>
         <div class="search-panel">
           <div>
             <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Transaction Vault</div>
-            <h2 style="font-family:'Newsreader',serif;font-size:2rem;font-weight:500;">Financial Due Diligence (FDD) Articles</h2>
+            <h2 style="font-family:'Newsreader',serif;font-size:2rem;font-weight:500;">FDD Articles</h2>
           </div>
 
           <div style="display:flex;align-items:center;gap:1rem;">
@@ -601,7 +618,6 @@
           </div>
         </div>
 
-        <!-- FDD Articles Carousel -->
         <div class="slider-viewport" id="ca-track">
           <div class="slider-track">
             
@@ -657,7 +673,7 @@
         </div>
       </section>
 
-      <!-- CA Mandate Consultation -->
+      <!-- Work With Me: CA Mandates -->
       <section class="intake-card">
         <h3>Retain Deal Advisory / FDD Mandates</h3>
         <p>Available for select buy-side transaction diligence, seller readiness assessments, and quality of earnings audits.</p>
@@ -692,7 +708,7 @@
 
     </div>
 
-    <!-- ================= VIEW 2: LIFE & MINDSET COACHING ================= -->
+    <!-- ================= 2. LIFE COACHING VIEW ================= -->
     <div class="view-panel" id="panel-coach">
       
       <header class="hero">
@@ -709,12 +725,12 @@
         </p>
       </header>
 
-      <!-- Search & Controls for Coaching Section -->
+      <!-- Mindset Articles Section -->
       <section>
         <div class="search-panel">
           <div>
             <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Cognitive Vault</div>
-            <h2 style="font-family:'Newsreader',serif;font-size:2rem;font-weight:500;">Mindset &amp; Leadership Articles</h2>
+            <h2 style="font-family:'Newsreader',serif;font-size:2rem;font-weight:500;">Life &amp; Mindset Articles</h2>
           </div>
 
           <div style="display:flex;align-items:center;gap:1rem;">
@@ -729,7 +745,6 @@
           </div>
         </div>
 
-        <!-- Mindset Articles Carousel -->
         <div class="slider-viewport" id="coach-track">
           <div class="slider-track">
             
@@ -773,7 +788,7 @@
         </div>
       </section>
 
-      <!-- Coaching Discovery Consultation -->
+      <!-- Work With Me: Life Coaching Discovery -->
       <section class="intake-card">
         <h3>Book an Executive Mindset Discovery Session</h3>
         <p>Confidential cognitive calibration sessions for professionals navigating high-pressure decisions and leadership transitions.</p>
@@ -839,40 +854,29 @@
       document.getElementById('progress-strip').style.width = (document.documentElement.scrollTop / h) * 100 + '%';
     });
 
-    // 3. Dynamic Dock Persona Inversion
-    let activePersona = 'ca';
+    // 3. Directly switch between CA and Life Coaching from the dock
+    function switchDomain(domain) {
+      document.documentElement.setAttribute('data-active', domain);
 
-    function togglePersona() {
-      if (activePersona === 'ca') {
-        setPersona('coach');
-      } else {
-        setPersona('ca');
-      }
-    }
-
-    function setPersona(type) {
-      activePersona = type;
-      document.documentElement.setAttribute('data-active', type);
-      
-      const btnIcon = document.getElementById('persona-icon');
-      const btnLabel = document.getElementById('persona-label');
+      const tabCA = document.getElementById('tab-ca');
+      const tabCoach = document.getElementById('tab-coach');
       const panelCA = document.getElementById('panel-ca');
       const panelCoach = document.getElementById('panel-coach');
 
-      if (type === 'ca') {
-        btnIcon.textContent = '☀';
-        btnLabel.textContent = 'Switch to Life Coaching';
+      if (domain === 'ca') {
+        tabCA.classList.add('active');
+        tabCoach.classList.remove('active');
         panelCA.classList.add('active-view');
         panelCoach.classList.remove('active-view');
       } else {
-        btnIcon.textContent = '✦';
-        btnLabel.textContent = 'Switch to Chartered Accountant';
+        tabCoach.classList.add('active');
+        tabCA.classList.remove('active');
         panelCoach.classList.add('active-view');
         panelCA.classList.remove('active-view');
       }
     }
 
-    // 4. Live Search Engine
+    // 4. Live Search
     function searchMemos(trackId, query) {
       const track = document.getElementById(trackId);
       const cards = track.querySelectorAll('.memo-card');
@@ -880,15 +884,11 @@
 
       cards.forEach(card => {
         const text = card.innerText.toLowerCase();
-        if (text.includes(term)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = text.includes(term) ? 'flex' : 'none';
       });
     }
 
-    // 5. Kinetic Carousel
+    // 5. Kinetic Drag Carousel
     function scrollTrack(id, dir) {
       const el = document.getElementById(id);
       el.scrollBy({ left: dir === 'left' ? -380 : 380, behavior: 'smooth' });
@@ -912,7 +912,7 @@
       });
     });
 
-    // 6. Day / Night Atmosphere Switcher
+    // 6. Theme Toggle
     const themeBtn = document.getElementById('theme-btn');
     const doc = document.documentElement;
 
@@ -927,7 +927,7 @@
       setAtmosphere(doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
 
-    // 7. Articles Data & In-Line Reader
+    // 7. Reader Data
     const memos = [
       {
         tag: "FINANCIAL DUE DILIGENCE · 5 MIN",
