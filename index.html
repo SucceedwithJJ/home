@@ -14,12 +14,11 @@
 
   <style>
     :root {
-      /* Base Transition Settings */
       --spring: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ================= 1. PSYCHOLOGY ENGINE: CA (BOLD & CONFIDENT) ================= */
+    /* ================= 1. PSYCHOLOGY ENGINE: CA (CONFIDENT & BOLD) ================= */
     [data-active="ca"] {
       --bg: #07090D;
       --card-bg: rgba(14, 18, 26, 0.7);
@@ -29,8 +28,6 @@
       --text: #F8FAFC;
       --muted: #94A3B8;
       --dim: #475569;
-
-      /* Strategic Cold Authority: Ice Cobalt & Steel */
       --accent: #38BDF8;
       --accent-deep: #0284C7;
       --accent-glow: rgba(56, 189, 248, 0.18);
@@ -69,8 +66,6 @@
       --text: #FFFBEB;
       --muted: #A8A29E;
       --dim: #57534E;
-
-      /* Strategic Warm Humanism: Radiant Amber & Soft Sage */
       --accent: #F59E0B;
       --accent-deep: #D97706;
       --accent-glow: rgba(245, 158, 11, 0.2);
@@ -122,7 +117,6 @@
         linear-gradient(to bottom, var(--border) 1px, transparent 1px);
       background-size: 80px 80px;
       opacity: 0.35;
-      transition: opacity 0.4s ease;
     }
 
     .spotlight {
@@ -145,7 +139,7 @@
       transition: background 0.4s ease;
     }
 
-    /* Discreet Waypoint Left Rail */
+    /* Left Rail */
     .left-rail {
       position: fixed;
       left: 2rem;
@@ -168,7 +162,6 @@
       align-items: center;
       gap: 1.5rem;
       box-shadow: var(--shadow);
-      transition: border-color 0.4s ease;
     }
 
     .rail-item {
@@ -220,7 +213,7 @@
       transform: translateX(0);
     }
 
-    /* Container Standard */
+    /* Container */
     .wrapper {
       max-width: 1040px;
       margin: 0 auto;
@@ -229,7 +222,7 @@
       z-index: 2;
     }
 
-    /* Top Floating Dock */
+    /* Floating Dock */
     .dock-holder {
       position: sticky;
       top: 1.5rem;
@@ -249,7 +242,6 @@
       align-items: center;
       gap: 0.35rem;
       box-shadow: var(--shadow);
-      transition: border-color 0.4s ease, background 0.4s ease;
     }
 
     .dock-brand {
@@ -313,7 +305,7 @@
     }
     .theme-trigger:hover { background: var(--card-inner); }
 
-    /* Hidden Owner HUD */
+    /* Owner HUD */
     .owner-hud {
       display: none;
       position: fixed;
@@ -359,7 +351,7 @@
       cursor: text !important;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
       text-align: center;
       padding: 2.5rem 0 3.5rem;
@@ -427,7 +419,6 @@
       margin-bottom: 2rem;
       gap: 1rem;
       flex-wrap: wrap;
-      transition: border-color 0.4s ease;
     }
 
     .search-input-wrap {
@@ -440,7 +431,6 @@
       border-radius: 50px;
       flex: 1;
       max-width: 380px;
-      transition: border-color 0.3s ease;
     }
     .search-input-wrap:focus-within { border-color: var(--accent); }
 
@@ -566,7 +556,7 @@
     }
     .memo-card:hover .memo-read-cta { gap: 0.8rem; }
 
-    /* Work With Me / Consultation Intake */
+    /* Work With Me */
     .intake-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -574,7 +564,6 @@
       border-radius: 26px;
       padding: 3.5rem;
       box-shadow: var(--shadow);
-      transition: border-color 0.4s ease;
     }
 
     .intake-card h3 {
@@ -689,6 +678,172 @@
     .view-panel { display: none; }
     .view-panel.active-view { display: block; }
 
+    /* ================= 3. DEDICATED FULL-SCREEN STUDIO SUITE ================= */
+    #editorial-studio {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 4000;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 2rem 1.5rem 6rem;
+    }
+    #editorial-studio.active { display: flex; }
+
+    .studio-top-bar {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.2rem;
+    }
+
+    .studio-brand-tag {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .studio-actions {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .studio-canvas {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      border-radius: 28px;
+      padding: 3.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .studio-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .studio-field label {
+      display: block;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .studio-field input, .studio-field select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .studio-field input:focus, .studio-field select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Floating Visual Format Toolbar */
+    .studio-toolbar {
+      position: sticky;
+      top: 1rem;
+      z-index: 10;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: fit-content;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Space Grotesk', monospace;
+    }
+    .tool-btn:hover {
+      color: var(--text);
+      background: var(--card-bg);
+    }
+
+    /* Live Editorial Draft Surface */
+    .studio-editor-headline {
+      font-family: 'Newsreader', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      line-height: 1.15;
+      outline: none;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .studio-editor-headline:empty:before {
+      content: "Enter your dispatch headline here...";
+      color: var(--dim);
+    }
+
+    .studio-editor-body {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text);
+      outline: none;
+      min-height: 350px;
+      padding-top: 1rem;
+    }
+    .studio-editor-body:empty:before {
+      content: "Draft your memo with full editorial formatting. Insert headers, pull quotes, or images using the toolbar above...";
+      color: var(--dim);
+    }
+
+    .studio-editor-body img {
+      max-width: 100%;
+      border-radius: 14px;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .studio-editor-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1.25rem;
+      font-family: 'Newsreader', serif;
+    }
+
     /* Footer */
     footer {
       margin-top: 6rem;
@@ -712,6 +867,8 @@
       .intake-card { padding: 2rem 1.5rem; }
       .search-panel { flex-direction: column; align-items: stretch; }
       .search-input-wrap { max-width: 100%; }
+      .studio-meta-grid { grid-template-columns: 1fr; }
+      .studio-canvas { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -721,7 +878,7 @@
   <div class="space-grid"></div>
   <div class="spotlight" id="spotlight"></div>
 
-  <!-- Discreet Left Rail -->
+  <!-- Left Waypoint Rail -->
   <aside class="left-rail">
     <div class="rail-track">
       <a href="#top" class="rail-item" title="Overview">
@@ -742,7 +899,7 @@
   <!-- Owner HUD -->
   <div class="owner-hud" id="owner-hud">
     <span class="owner-badge">⚡ Owner Mode</span>
-    <button class="owner-action-btn" onclick="openNewArticleModal()">+ Add Article</button>
+    <button class="owner-action-btn" onclick="openStudioView()">+ Add Article</button>
     <button class="owner-action-btn" onclick="saveLiveEdits()" style="background:var(--text);color:var(--bg);">Save Edits</button>
     <button class="owner-action-btn" onclick="changeOwnerPassword()" style="background:transparent;color:var(--text);border:1px solid var(--border);">Change Key</button>
     <button class="owner-action-btn" onclick="logoutOwner()" style="background:transparent;color:var(--dim);border:1px solid var(--border);">Exit</button>
@@ -750,10 +907,10 @@
 
   <div class="wrapper" id="top">
 
-    <!-- Top Floating Switch Dock -->
+    <!-- Dock Header -->
     <div class="dock-holder">
       <nav class="island-dock">
-        <!-- Secret Trigger: Triple-click "JJ" to open secret owner prompt -->
+        <!-- Secret Trigger: Triple-click "JJ" to open login -->
         <span class="dock-brand" id="secret-brand-trigger">JJ</span>
 
         <button class="nav-tab active" id="tab-ca" onclick="switchDomain('ca')">
@@ -768,9 +925,8 @@
       </nav>
     </div>
 
-    <!-- ================= VIEW 1: CA (CONFIDENT, BOLD & RIGOROUS) ================= -->
+    <!-- ================= 1. VIEW: CA ================= -->
     <div class="view-panel active-view" id="panel-ca">
-      
       <header class="hero">
         <div class="authority-badge">
           <span class="pulsing-pip"></span>
@@ -785,7 +941,6 @@
         </p>
       </header>
 
-      <!-- FDD Articles Section -->
       <section id="articles-section">
         <div class="search-panel">
           <div>
@@ -810,12 +965,11 @@
         </div>
       </section>
 
-      <!-- Work With Me: CA Mandates -->
       <section class="intake-card" id="work-section">
         <h3 class="live-edit" id="ca-form-title">Retain Deal Advisory / FDD Mandates</h3>
         <p class="live-edit" id="ca-form-desc">Available for select buy-side transaction diligence, seller readiness assessments, and quality of earnings audits.</p>
 
-        <form class="form-grid" onsubmit="event.preventDefault(); alert('Mandate inquiry recorded. We will respond within 24 hours.');">
+        <form class="form-grid" onsubmit="event.preventDefault(); alert('Mandate inquiry transmitted.');">
           <div class="form-ctrl">
             <label>Name / Organization</label>
             <input type="text" placeholder="e.g., Alexander Vance" required />
@@ -842,12 +996,10 @@
           </div>
         </form>
       </section>
-
     </div>
 
-    <!-- ================= VIEW 2: LIFE COACHING (TRUST, WARMTH & POSSIBILITY) ================= -->
+    <!-- ================= 2. VIEW: LIFE COACHING ================= -->
     <div class="view-panel" id="panel-coach">
-      
       <header class="hero">
         <div class="authority-badge">
           <span class="pulsing-pip"></span>
@@ -862,7 +1014,6 @@
         </p>
       </header>
 
-      <!-- Mindset Articles Section -->
       <section>
         <div class="search-panel">
           <div>
@@ -887,12 +1038,11 @@
         </div>
       </section>
 
-      <!-- Work With Me: Life Coaching Discovery -->
       <section class="intake-card">
         <h3 class="live-edit" id="coach-form-title">Book an Executive Mindset Discovery Session</h3>
         <p class="live-edit" id="coach-form-desc">Confidential cognitive calibration sessions for professionals navigating high-pressure decisions and leadership transitions.</p>
 
-        <form class="form-grid" onsubmit="event.preventDefault(); alert('Discovery application recorded. We will be in touch shortly.');">
+        <form class="form-grid" onsubmit="event.preventDefault(); alert('Discovery application recorded.');">
           <div class="form-ctrl">
             <label>Full Name</label>
             <input type="text" placeholder="e.g., Sarah Jenkins" required />
@@ -919,7 +1069,6 @@
           </div>
         </form>
       </section>
-
     </div>
 
     <!-- Footer -->
@@ -932,7 +1081,7 @@
 
   </div>
 
-  <!-- Reader Modal Window -->
+  <!-- Reader Modal -->
   <div class="reader-modal" id="reader-modal" onclick="closeOnBackdrop(event)">
     <div class="reader-frame">
       <button class="close-btn" onclick="dismissReader()">✕</button>
@@ -940,54 +1089,65 @@
     </div>
   </div>
 
-  <!-- Add Article Modal -->
-  <div class="reader-modal" id="new-article-modal" onclick="closeNewModalOnBackdrop(event)">
-    <div class="reader-frame" style="max-width:620px;">
-      <button class="close-btn" onclick="dismissNewModal()">✕</button>
-      <h3 style="font-family:'Newsreader',serif;font-size:1.8rem;margin-bottom:1.5rem;">Publish New Article</h3>
-      <form id="new-article-form" onsubmit="submitNewArticle(event)" style="display:flex;flex-direction:column;gap:1rem;">
-        <div>
-          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">DOMAIN SECTION</label>
-          <select id="new-art-domain" style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;">
-            <option value="ca">Financial Due Diligence (CA)</option>
+  <!-- ================= 4. DEDICATED FULL-CANVAS EDITORIAL STUDIO ================= -->
+  <div id="editorial-studio">
+    <div class="studio-top-bar">
+      <div class="studio-brand-tag">✦ Editorial Publishing Suite</div>
+      <div class="studio-actions">
+        <button class="owner-action-btn" onclick="closeStudioView()" style="background:transparent;color:var(--muted);border:1px solid var(--border);">Cancel Draft</button>
+        <button class="owner-action-btn" onclick="publishStudioArticle()">Publish Live Article ↗</button>
+      </div>
+    </div>
+
+    <div class="studio-canvas">
+      <!-- Metadata Row -->
+      <div class="studio-meta-grid">
+        <div class="studio-field">
+          <label>Target Vault</label>
+          <select id="studio-vault">
+            <option value="ca">Due Diligence (CA)</option>
             <option value="coach">Mindset &amp; Coaching</option>
           </select>
         </div>
-        <div>
-          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">TITLE</label>
-          <input type="text" id="new-art-title" placeholder="Enter article headline..." required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;" />
+        <div class="studio-field">
+          <label>Estimated Read Time</label>
+          <input type="text" id="studio-time" placeholder="e.g., 6 MIN READ" />
         </div>
-        <div>
-          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">READ TIME</label>
-          <input type="text" id="new-art-time" placeholder="e.g., 5 MIN READ" required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;" />
+        <div class="studio-field">
+          <label>Carousel Card Excerpt</label>
+          <input type="text" id="studio-excerpt" placeholder="1-2 sentences for preview card..." />
         </div>
-        <div>
-          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">SUMMARY (CARD TEASER)</label>
-          <input type="text" id="new-art-excerpt" placeholder="1-2 sentence preview..." required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;" />
-        </div>
-        <div>
-          <label style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--muted);">FULL ARTICLE BODY (HTML/PARAGRAPHS)</label>
-          <textarea id="new-art-body" rows="6" placeholder="Write full article here..." required style="width:100%;padding:0.75rem;background:var(--card-inner);border:1px solid var(--border);color:var(--text);border-radius:8px;outline:none;font-family:inherit;"></textarea>
-        </div>
-        <button type="submit" class="submit-btn" style="margin-top:0.5rem;">Publish to Website ↗</button>
-      </form>
+      </div>
+
+      <!-- Live Interactive Formatting Ribbon -->
+      <div class="studio-toolbar">
+        <button class="tool-btn" onclick="formatDoc('bold')" title="Bold"><b>B</b></button>
+        <button class="tool-btn" onclick="formatDoc('italic')" title="Italic"><i>I</i></button>
+        <button class="tool-btn" onclick="formatBlock('h3')" title="Section Heading">H3</button>
+        <button class="tool-btn" onclick="formatBlock('blockquote')" title="Pull Quote">“ Quote</button>
+        <button class="tool-btn" onclick="insertStudioImage()" title="Add Image">🖼 Image</button>
+      </div>
+
+      <!-- Live Editable Surface -->
+      <div class="studio-editor-headline" id="studio-headline" contenteditable="true"></div>
+      <div class="studio-editor-body" id="studio-body" contenteditable="true"></div>
     </div>
   </div>
 
   <script>
-    // 1. Interactive Mouse Spotlight
+    // 1. Mouse Tracking Spotlight
     window.addEventListener('mousemove', (e) => {
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
       document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
     });
 
-    // 2. Reading Progress Ribbon
+    // 2. Reading Progress
     window.addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       document.getElementById('progress-strip').style.width = (document.documentElement.scrollTop / h) * 100 + '%';
     });
 
-    // 3. Domain Switcher with Full Psychological Palette Morph
+    // 3. Domain Switcher
     function switchDomain(domain) {
       document.documentElement.setAttribute('data-active', domain);
 
@@ -1009,7 +1169,7 @@
       }
     }
 
-    // 4. Default Articles
+    // 4. Default Memos Database
     const defaultMemos = [
       {
         id: 0,
@@ -1100,7 +1260,7 @@
 
     renderArticles();
 
-    // 5. Search
+    // 5. Search Engine
     function searchMemos(trackId, query) {
       const track = document.getElementById(trackId);
       const cards = track.querySelectorAll('.memo-card');
@@ -1136,7 +1296,7 @@
       });
     });
 
-    // 7. Day / Night Switcher
+    // 7. Atmosphere Switcher
     const themeBtn = document.getElementById('theme-btn');
     const doc = document.documentElement;
 
@@ -1156,8 +1316,8 @@
       const m = memos[idx];
       document.getElementById('reader-content').innerHTML = `
         <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.75rem;">${m.badge} · ${m.readTime}</div>
-        <h2 style="font-family:'Newsreader',serif;font-size:2.2rem;font-weight:500;line-height:1.15;margin-bottom:1.5rem;">${m.title}</h2>
-        <div>${m.body}</div>
+        <h2 style="font-family:'Newsreader',serif;font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:1.5rem;">${m.title}</h2>
+        <div style="font-size:1.1rem;line-height:1.8;">${m.body}</div>
         <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
           <a href="https://linkedin.com" target="_blank" class="submit-btn" style="display:inline-block;text-decoration:none;font-size:0.8rem;padding:0.6rem 1.4rem;width:auto;">Discuss on LinkedIn ↗</a>
         </div>
@@ -1187,7 +1347,7 @@
       }
     }
 
-    // Secret Key Combo (Ctrl+Shift+E or Cmd+Shift+E)
+    // Shortcut: Ctrl+Shift+E or Cmd+Shift+E
     window.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
         e.preventDefault();
@@ -1195,7 +1355,7 @@
       }
     });
 
-    // Secret Triple-Click on "JJ" brand
+    // Triple click "JJ" brand
     let brandClicks = 0;
     let brandTimer = null;
     document.getElementById('secret-brand-trigger').addEventListener('click', () => {
@@ -1218,7 +1378,7 @@
         el.classList.add('editable-outline');
       });
 
-      alert("Owner Mode Active!\n- Click any headline or bio text to edit directly.\n- Click '+ Add Article' to write new dispatches.\n- Click 'Save Edits' when done.");
+      alert("Owner Mode Active!\n- Click '+ Add Article' to enter the full-screen visual studio.\n- Click on text on the page to live-edit.\n- Click 'Save Edits' to persist changes.");
     }
 
     function changeOwnerPassword() {
@@ -1227,7 +1387,7 @@
         const nextKey = prompt("Enter new access key:");
         if (nextKey && nextKey.trim().length >= 4) {
           setOwnerKey(nextKey.trim());
-          alert("Key updated successfully! Remember your new key.");
+          alert("Key updated successfully!");
         } else if (nextKey !== null) {
           alert("Key must be at least 4 characters.");
         }
@@ -1269,41 +1429,66 @@
       }
     });
 
-    // Add Article Functions
-    function openNewArticleModal() {
-      document.getElementById('new-article-modal').style.display = 'grid';
-    }
-    function closeNewModalOnBackdrop(e) {
-      if (e.target.id === 'new-article-modal') dismissNewModal();
-    }
-    function dismissNewModal() {
-      document.getElementById('new-article-modal').style.display = 'none';
+    // ================= 10. EDITORIAL STUDIO (VISUAL WHAT-YOU-SEE-IS-WHAT-YOU-GET) =================
+    function openStudioView() {
+      document.getElementById('editorial-studio').classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
-    function submitNewArticle(e) {
-      e.preventDefault();
-      const domain = document.getElementById('new-art-domain').value;
-      const title = document.getElementById('new-art-title').value;
-      const readTime = document.getElementById('new-art-time').value;
-      const excerpt = document.getElementById('new-art-excerpt').value;
-      const body = document.getElementById('new-art-body').value.replace(/\n/g, '<br/><br/>');
+    function closeStudioView() {
+      document.getElementById('editorial-studio').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
 
-      const newArt = {
+    function formatDoc(cmd, val = null) {
+      document.execCommand(cmd, false, val);
+    }
+
+    function formatBlock(tag) {
+      document.execCommand('formatBlock', false, tag);
+    }
+
+    function insertStudioImage() {
+      const url = prompt("Enter Image URL (or paste Web link):");
+      if (url) {
+        document.execCommand('insertImage', false, url);
+      }
+    }
+
+    function publishStudioArticle() {
+      const headline = document.getElementById('studio-headline').innerText.trim();
+      const bodyHTML = document.getElementById('studio-body').innerHTML.trim();
+      const domain = document.getElementById('studio-vault').value;
+      const readTime = document.getElementById('studio-time').value.trim() || '5 MIN READ';
+      const excerpt = document.getElementById('studio-excerpt').value.trim() || headline;
+
+      if (!headline || !bodyHTML) {
+        alert("Please provide both a headline and article content.");
+        return;
+      }
+
+      const newArticle = {
         id: Date.now(),
         domain,
         badge: domain === 'ca' ? 'Due Diligence' : 'Mindset',
         readTime,
-        title,
+        title: headline,
         excerpt,
-        body
+        body: bodyHTML
       };
 
-      memos.unshift(newArt);
+      memos.unshift(newArticle);
       localStorage.setItem('jj_custom_memos', JSON.stringify(memos));
       renderArticles();
-      dismissNewModal();
-      document.getElementById('new-article-form').reset();
-      alert("Article published live!");
+      closeStudioView();
+
+      // Reset studio draft
+      document.getElementById('studio-headline').innerHTML = '';
+      document.getElementById('studio-body').innerHTML = '';
+      document.getElementById('studio-excerpt').value = '';
+      document.getElementById('studio-time').value = '';
+
+      alert(`Article published live to the ${domain === 'ca' ? 'Chartered Accountant' : 'Life Coaching'} vault!`);
     }
   </script>
 </body>
