@@ -3,58 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JJ — CA & Executive Life Coach</title>
+  <title>JJ — Chartered Accountant & Mindset Architect</title>
 
-  <meta name="description" content="Financial Due Diligence & Executive Mindset Coaching." />
+  <meta name="description" content="Precision buy-side financial diligence & high-conviction cognitive architecture." />
 
-  <!-- Fonts -->
+  <!-- Premium Editorial & Grotesk Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #090A0D;
-      --card-bg: rgba(18, 20, 26, 0.65);
-      --card-inner: #13161F;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.22);
-      --text: #F3F5F8;
-      --muted: #8E95A5;
-      --dim: #515867;
-      
-      --ca-color: #38BDF8;
-      --ca-glow: rgba(56, 189, 248, 0.14);
-      --coach-color: #F59E0B;
-      --coach-glow: rgba(245, 158, 11, 0.14);
-      
-      --accent: var(--ca-color);
-      --spotlight: var(--ca-glow);
-      --dock-bg: rgba(18, 20, 26, 0.85);
-      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+      /* Base Transition Settings */
       --spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    [data-active="coach"] {
-      --accent: var(--coach-color);
-      --spotlight: var(--coach-glow);
+    /* ================= 1. PSYCHOLOGY ENGINE: CA (BOLD & CONFIDENT) ================= */
+    [data-active="ca"] {
+      --bg: #07090D;
+      --card-bg: rgba(14, 18, 26, 0.7);
+      --card-inner: #0F1420;
+      --border: rgba(56, 189, 248, 0.12);
+      --border-hover: rgba(56, 189, 248, 0.4);
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --dim: #475569;
+
+      /* Strategic Cold Authority: Ice Cobalt & Steel */
+      --accent: #38BDF8;
+      --accent-deep: #0284C7;
+      --accent-glow: rgba(56, 189, 248, 0.18);
+      --spotlight: rgba(14, 165, 233, 0.16);
+      --button-text: #04101A;
+      --dock-bg: rgba(11, 15, 23, 0.85);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+      --halo: 0 0 25px rgba(56, 189, 248, 0.15);
     }
 
-    [data-theme="light"] {
-      --bg: #F6F3EE;
-      --card-bg: rgba(255, 255, 255, 0.75);
+    [data-active="ca"][data-theme="light"] {
+      --bg: #F4F7FA;
+      --card-bg: rgba(255, 255, 255, 0.85);
       --card-inner: #FFFFFF;
-      --border: rgba(0, 0, 0, 0.08);
-      --border-hover: rgba(0, 0, 0, 0.22);
-      --text: #121316;
-      --muted: #666A73;
-      --dim: #9FA4AF;
-      --ca-color: #0284C7;
-      --ca-glow: rgba(2, 132, 199, 0.08);
-      --coach-color: #D97706;
-      --coach-glow: rgba(217, 119, 6, 0.08);
-      --dock-bg: rgba(255, 255, 255, 0.85);
-      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+      --border: rgba(2, 132, 199, 0.12);
+      --border-hover: rgba(2, 132, 199, 0.35);
+      --text: #0F172A;
+      --muted: #475569;
+      --dim: #94A3B8;
+      --accent: #0284C7;
+      --accent-deep: #0369A1;
+      --accent-glow: rgba(2, 132, 199, 0.1);
+      --spotlight: rgba(2, 132, 199, 0.08);
+      --button-text: #FFFFFF;
+      --dock-bg: rgba(255, 255, 255, 0.88);
+      --shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
+    }
+
+    /* ================= 2. PSYCHOLOGY ENGINE: LIFE COACH (TRUST & POSSIBILITY) ================= */
+    [data-active="coach"] {
+      --bg: #0C0A09;
+      --card-bg: rgba(26, 21, 18, 0.7);
+      --card-inner: #1C1714;
+      --border: rgba(245, 158, 11, 0.15);
+      --border-hover: rgba(245, 158, 11, 0.45);
+      --text: #FFFBEB;
+      --muted: #A8A29E;
+      --dim: #57534E;
+
+      /* Strategic Warm Humanism: Radiant Amber & Soft Sage */
+      --accent: #F59E0B;
+      --accent-deep: #D97706;
+      --accent-glow: rgba(245, 158, 11, 0.2);
+      --spotlight: rgba(245, 158, 11, 0.16);
+      --button-text: #1C1304;
+      --dock-bg: rgba(23, 19, 16, 0.85);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+      --halo: 0 0 30px rgba(245, 158, 11, 0.16);
+    }
+
+    [data-active="coach"][data-theme="light"] {
+      --bg: #FAF6F0;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-inner: #FFFFFF;
+      --border: rgba(217, 119, 6, 0.15);
+      --border-hover: rgba(217, 119, 6, 0.35);
+      --text: #292524;
+      --muted: #57534E;
+      --dim: #A8A29E;
+      --accent: #D97706;
+      --accent-deep: #B45309;
+      --accent-glow: rgba(217, 119, 6, 0.1);
+      --spotlight: rgba(217, 119, 6, 0.08);
+      --button-text: #FFFFFF;
+      --dock-bg: rgba(255, 255, 255, 0.88);
+      --shadow: 0 10px 30px -10px rgba(41, 37, 36, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,7 +107,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background-color 0.4s ease, color 0.4s ease;
+      transition: background-color 0.5s var(--ease-fluid), color 0.5s var(--ease-fluid);
       min-height: 100vh;
       position: relative;
     }
@@ -79,7 +121,8 @@
         linear-gradient(to right, var(--border) 1px, transparent 1px),
         linear-gradient(to bottom, var(--border) 1px, transparent 1px);
       background-size: 80px 80px;
-      opacity: 0.4;
+      opacity: 0.35;
+      transition: opacity 0.4s ease;
     }
 
     .spotlight {
@@ -87,8 +130,8 @@
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background: radial-gradient(700px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), var(--spotlight), transparent 75%);
-      transition: background 0.3s ease;
+      background: radial-gradient(750px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), var(--spotlight), transparent 75%);
+      transition: background 0.4s var(--ease-fluid);
     }
 
     #progress-strip {
@@ -99,10 +142,10 @@
       background: var(--accent);
       width: 0%;
       z-index: 2000;
-      transition: background 0.3s ease;
+      transition: background 0.4s ease;
     }
 
-    /* LEFT-HAND VERTICAL RAIL (Clean: No visible lock/admin button) */
+    /* Discreet Waypoint Left Rail */
     .left-rail {
       position: fixed;
       left: 2rem;
@@ -125,6 +168,7 @@
       align-items: center;
       gap: 1.5rem;
       box-shadow: var(--shadow);
+      transition: border-color 0.4s ease;
     }
 
     .rail-item {
@@ -168,7 +212,7 @@
     .rail-item:hover .rail-pip {
       background: var(--accent);
       transform: scale(1.4);
-      box-shadow: 0 0 10px var(--accent);
+      box-shadow: 0 0 12px var(--accent);
     }
 
     .rail-item:hover .rail-label {
@@ -176,7 +220,7 @@
       transform: translateX(0);
     }
 
-    /* Centered Canvas */
+    /* Container Standard */
     .wrapper {
       max-width: 1040px;
       margin: 0 auto;
@@ -185,7 +229,7 @@
       z-index: 2;
     }
 
-    /* Floating Dock */
+    /* Top Floating Dock */
     .dock-holder {
       position: sticky;
       top: 1.5rem;
@@ -203,8 +247,9 @@
       border-radius: 100px;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
       box-shadow: var(--shadow);
+      transition: border-color 0.4s ease, background 0.4s ease;
     }
 
     .dock-brand {
@@ -213,7 +258,6 @@
       font-weight: 700;
       padding: 0.5rem 0.9rem;
       color: var(--text);
-      text-decoration: none;
       cursor: pointer;
       user-select: none;
     }
@@ -222,7 +266,7 @@
       font-family: 'Space Grotesk', monospace;
       font-size: 0.82rem;
       font-weight: 700;
-      padding: 0.55rem 1.15rem;
+      padding: 0.55rem 1.25rem;
       border-radius: 50px;
       border: none;
       background: transparent;
@@ -230,20 +274,16 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: all 0.25s ease;
+      gap: 0.45rem;
+      transition: all 0.3s var(--spring);
     }
 
     .nav-tab:hover { color: var(--text); }
 
     .nav-tab.active {
-      color: #000000;
-      background: #FFFFFF;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    }
-    [data-theme="light"] .nav-tab.active {
-      color: #FFFFFF;
-      background: #121316;
+      color: var(--button-text);
+      background: var(--accent);
+      box-shadow: 0 3px 15px var(--accent-glow);
     }
 
     .dock-link {
@@ -254,7 +294,7 @@
       text-decoration: none;
       padding: 0.5rem 0.85rem;
       border-radius: 50px;
-      transition: all 0.2s ease;
+      transition: color 0.2s ease;
     }
     .dock-link:hover { color: var(--text); }
 
@@ -273,19 +313,19 @@
     }
     .theme-trigger:hover { background: var(--card-inner); }
 
-    /* OWNER HUD (Completely invisible to everyone else) */
+    /* Hidden Owner HUD */
     .owner-hud {
       display: none;
       position: fixed;
       bottom: 1.5rem;
       right: 1.5rem;
-      background: rgba(18, 20, 26, 0.95);
+      background: var(--card-bg);
       border: 1px solid var(--accent);
       backdrop-filter: blur(20px);
       padding: 0.6rem 1rem;
       border-radius: 100px;
       z-index: 2000;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
       align-items: center;
       gap: 0.6rem;
     }
@@ -302,7 +342,7 @@
 
     .owner-action-btn {
       background: var(--accent);
-      color: #07090D;
+      color: var(--button-text);
       border: none;
       font-family: 'Space Grotesk', monospace;
       font-size: 0.75rem;
@@ -319,7 +359,7 @@
       cursor: text !important;
     }
 
-    /* Hero */
+    /* Hero Section */
     .hero {
       text-align: center;
       padding: 2.5rem 0 3.5rem;
@@ -339,6 +379,7 @@
       font-weight: 600;
       color: var(--text);
       margin-bottom: 1.8rem;
+      box-shadow: var(--shadow);
     }
 
     .pulsing-pip {
@@ -346,8 +387,8 @@
       height: 7px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-      transition: background 0.3s ease;
+      box-shadow: 0 0 12px var(--accent);
+      transition: background 0.4s ease;
     }
 
     .hero-title {
@@ -362,7 +403,7 @@
     .hero-title em {
       font-style: italic;
       color: var(--accent);
-      transition: color 0.3s ease;
+      transition: color 0.4s ease;
     }
 
     .hero-summary {
@@ -378,14 +419,15 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(16px);
-      border-radius: 18px;
-      padding: 1.25rem 1.5rem;
+      border-radius: 20px;
+      padding: 1.35rem 1.6rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
       gap: 1rem;
       flex-wrap: wrap;
+      transition: border-color 0.4s ease;
     }
 
     .search-input-wrap {
@@ -394,11 +436,13 @@
       gap: 0.6rem;
       background: var(--card-inner);
       border: 1px solid var(--border);
-      padding: 0.6rem 1rem;
+      padding: 0.6rem 1.1rem;
       border-radius: 50px;
       flex: 1;
       max-width: 380px;
+      transition: border-color 0.3s ease;
     }
+    .search-input-wrap:focus-within { border-color: var(--accent); }
 
     .search-input-wrap input {
       background: transparent;
@@ -410,14 +454,11 @@
       width: 100%;
     }
 
-    .carousel-arrows {
-      display: flex;
-      gap: 0.5rem;
-    }
+    .carousel-arrows { display: flex; gap: 0.5rem; }
 
     .nav-arrow {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--card-inner);
@@ -428,7 +469,11 @@
       font-size: 1rem;
       transition: all 0.2s ease;
     }
-    .nav-arrow:hover { background: var(--text); color: var(--bg); }
+    .nav-arrow:hover {
+      background: var(--accent);
+      color: var(--button-text);
+      border-color: var(--accent);
+    }
 
     /* Carousel */
     .slider-viewport {
@@ -453,12 +498,12 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(16px);
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 2.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 380px;
+      min-height: 390px;
       box-shadow: var(--shadow);
       transition: all 0.3s var(--spring);
       user-select: none;
@@ -466,6 +511,7 @@
     .memo-card:hover {
       border-color: var(--border-hover);
       transform: translateY(-5px);
+      box-shadow: var(--halo);
     }
 
     .memo-meta {
@@ -480,10 +526,10 @@
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
+      padding: 0.35rem 0.85rem;
       border-radius: 50px;
       color: var(--accent);
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--accent-glow);
       border: 1px solid var(--border);
     }
 
@@ -495,7 +541,7 @@
 
     .memo-title {
       font-family: 'Newsreader', serif;
-      font-size: 1.55rem;
+      font-size: 1.6rem;
       font-weight: 500;
       line-height: 1.25;
       margin-bottom: 0.8rem;
@@ -520,19 +566,20 @@
     }
     .memo-card:hover .memo-read-cta { gap: 0.8rem; }
 
-    /* Intake Cards */
+    /* Work With Me / Consultation Intake */
     .intake-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(16px);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 3.5rem;
       box-shadow: var(--shadow);
+      transition: border-color 0.4s ease;
     }
 
     .intake-card h3 {
       font-family: 'Newsreader', serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 500;
       margin-bottom: 0.5rem;
     }
@@ -541,7 +588,7 @@
       color: var(--muted);
       font-size: 1rem;
       margin-bottom: 2.5rem;
-      max-width: 620px;
+      max-width: 640px;
     }
 
     .form-grid {
@@ -565,10 +612,10 @@
 
     .form-ctrl input, .form-ctrl select, .form-ctrl textarea {
       width: 100%;
-      padding: 0.85rem 1.1rem;
+      padding: 0.9rem 1.2rem;
       background: var(--card-inner);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 12px;
       color: var(--text);
       font-family: inherit;
       font-size: 0.9rem;
@@ -582,9 +629,9 @@
 
     .submit-btn {
       background: var(--accent);
-      color: #07090D;
+      color: var(--button-text);
       border: none;
-      padding: 0.95rem 2.2rem;
+      padding: 1rem 2.4rem;
       border-radius: 50px;
       font-family: 'Space Grotesk', monospace;
       font-weight: 700;
@@ -592,6 +639,7 @@
       cursor: pointer;
       transition: transform 0.2s ease, opacity 0.2s ease;
       width: 100%;
+      box-shadow: 0 4px 20px var(--accent-glow);
     }
     .submit-btn:hover {
       transform: translateY(-2px);
@@ -602,7 +650,7 @@
     .reader-modal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.78);
       backdrop-filter: blur(16px);
       z-index: 3000;
       display: none;
@@ -613,7 +661,7 @@
     .reader-frame {
       background: var(--bg);
       border: 1px solid var(--border-hover);
-      border-radius: 24px;
+      border-radius: 26px;
       width: 100%;
       max-width: 760px;
       max-height: 85vh;
@@ -638,14 +686,13 @@
       place-content: center;
     }
 
-    /* View Panels */
     .view-panel { display: none; }
     .view-panel.active-view { display: block; }
 
     /* Footer */
     footer {
       margin-top: 6rem;
-      padding-top: 2rem;
+      padding-top: 2.2rem;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -674,12 +721,12 @@
   <div class="space-grid"></div>
   <div class="spotlight" id="spotlight"></div>
 
-  <!-- LEFT-HAND WAYPOINT RAIL (Completely Clean & Discrete) -->
+  <!-- Discreet Left Rail -->
   <aside class="left-rail">
     <div class="rail-track">
       <a href="#top" class="rail-item" title="Overview">
         <span class="rail-pip"></span>
-        <span class="rail-label">Overview</span>
+        <span class="rail-label">Briefing</span>
       </a>
       <a href="#articles-section" class="rail-item" title="Articles">
         <span class="rail-pip"></span>
@@ -687,12 +734,12 @@
       </a>
       <a href="#work-section" class="rail-item" title="Work With Me">
         <span class="rail-pip"></span>
-        <span class="rail-label">Work With Me</span>
+        <span class="rail-label">Engagement</span>
       </a>
     </div>
   </aside>
 
-  <!-- OWNER HUD (Only visible once you enter the secret passkey) -->
+  <!-- Owner HUD -->
   <div class="owner-hud" id="owner-hud">
     <span class="owner-badge">⚡ Owner Mode</span>
     <button class="owner-action-btn" onclick="openNewArticleModal()">+ Add Article</button>
@@ -703,10 +750,10 @@
 
   <div class="wrapper" id="top">
 
-    <!-- FLOATING DOCK -->
+    <!-- Top Floating Switch Dock -->
     <div class="dock-holder">
       <nav class="island-dock">
-        <!-- Secret Trigger: Triple-click "JJ" to open the password prompt -->
+        <!-- Secret Trigger: Triple-click "JJ" to open secret owner prompt -->
         <span class="dock-brand" id="secret-brand-trigger">JJ</span>
 
         <button class="nav-tab active" id="tab-ca" onclick="switchDomain('ca')">
@@ -717,11 +764,11 @@
         </button>
 
         <a href="https://linkedin.com" target="_blank" rel="noopener" class="dock-link">LinkedIn ↗</a>
-        <button class="theme-trigger" id="theme-btn" aria-label="Toggle Mode">☼</button>
+        <button class="theme-trigger" id="theme-btn" aria-label="Toggle Atmosphere">☼</button>
       </nav>
     </div>
 
-    <!-- ================= 1. CHARTERED ACCOUNTANT VIEW ================= -->
+    <!-- ================= VIEW 1: CA (CONFIDENT, BOLD & RIGOROUS) ================= -->
     <div class="view-panel active-view" id="panel-ca">
       
       <header class="hero">
@@ -798,20 +845,20 @@
 
     </div>
 
-    <!-- ================= 2. LIFE COACHING VIEW ================= -->
+    <!-- ================= VIEW 2: LIFE COACHING (TRUST, WARMTH & POSSIBILITY) ================= -->
     <div class="view-panel" id="panel-coach">
       
       <header class="hero">
         <div class="authority-badge">
           <span class="pulsing-pip"></span>
-          <span class="live-edit" id="coach-badge">Executive Mindset &amp; Cognitive Architecture</span>
+          <span class="live-edit" id="coach-badge">Executive Mindset &amp; Human Potential Architect</span>
         </div>
         <h1 class="hero-title live-edit" id="coach-title">
           Master the inner narrative.<br />
-          <em>Lead with high conviction under ambiguity.</em>
+          <em>Lead with conviction under ambiguity.</em>
         </h1>
         <p class="hero-summary live-edit" id="coach-desc">
-          Cognitive coaching designed specifically for finance professionals, corporate leaders, and founders struggling with analytical paralysis and deal exhaustion.
+          Cognitive coaching designed specifically for finance professionals, corporate leaders, and founders stepping into visionary execution, grounded resilience, and expansive possibility.
         </p>
       </header>
 
@@ -928,19 +975,19 @@
   </div>
 
   <script>
-    // 1. Mouse Spotlight
+    // 1. Interactive Mouse Spotlight
     window.addEventListener('mousemove', (e) => {
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
       document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
     });
 
-    // 2. Reading Progress
+    // 2. Reading Progress Ribbon
     window.addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       document.getElementById('progress-strip').style.width = (document.documentElement.scrollTop / h) * 100 + '%';
     });
 
-    // 3. Domain Switcher
+    // 3. Domain Switcher with Full Psychological Palette Morph
     function switchDomain(domain) {
       document.documentElement.setAttribute('data-active', domain);
 
@@ -962,7 +1009,7 @@
       }
     }
 
-    // 4. Articles Database
+    // 4. Default Articles
     const defaultMemos = [
       {
         id: 0,
@@ -1089,7 +1136,7 @@
       });
     });
 
-    // 7. Day / Night Atmosphere Switcher
+    // 7. Day / Night Switcher
     const themeBtn = document.getElementById('theme-btn');
     const doc = document.documentElement;
 
@@ -1123,8 +1170,6 @@
     function dismissReader() { document.getElementById('reader-modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
     // ================= 9. INVISIBLE OWNER ACCESS ENGINE =================
-    
-    // Retrieve password or default to "admin123" on first launch
     function getOwnerKey() {
       return localStorage.getItem('jj_owner_key') || 'admin123';
     }
@@ -1142,7 +1187,7 @@
       }
     }
 
-    // Trigger 1: Secret Key Combo (Ctrl+Shift+E or Cmd+Shift+E)
+    // Secret Key Combo (Ctrl+Shift+E or Cmd+Shift+E)
     window.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
         e.preventDefault();
@@ -1150,7 +1195,7 @@
       }
     });
 
-    // Trigger 2: Secret Triple-Click on "JJ" brand
+    // Secret Triple-Click on "JJ" brand
     let brandClicks = 0;
     let brandTimer = null;
     document.getElementById('secret-brand-trigger').addEventListener('click', () => {
