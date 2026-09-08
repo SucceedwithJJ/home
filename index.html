@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JJ, CA — Transaction Diligence & Cognitive Architecture</title>
+  <title>JJ — Chartered Accountant & Life Coach</title>
 
-  <meta name="description" content="Buy-side financial diligence, Quality of Earnings, and executive mindset coaching." />
+  <meta name="description" content="Chartered Accountant specializing in Financial Due Diligence & Executive Mindset Coaching." />
 
-  <!-- Google Fonts: Editorial Serif, Clean Sans, Monospace -->
+  <!-- Fonts: Newsreader, Plus Jakarta Sans, Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -25,7 +25,9 @@
       --accent: #FF5533;
       --accent-rgb: 255, 85, 51;
       --fdd: #0284C7;
+      --fdd-rgb: 2, 132, 199;
       --mindset: #D97706;
+      --mindset-rgb: 217, 119, 6;
       --spotlight: rgba(255, 85, 51, 0.08);
       --dock-bg: rgba(255, 255, 255, 0.85);
       --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
@@ -45,7 +47,9 @@
       --accent: #FF5533;
       --accent-rgb: 255, 85, 51;
       --fdd: #38BDF8;
+      --fdd-rgb: 56, 189, 248;
       --mindset: #FBBF24;
+      --mindset-rgb: 251, 191, 36;
       --spotlight: rgba(255, 85, 51, 0.14);
       --dock-bg: rgba(18, 20, 26, 0.85);
       --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
@@ -65,7 +69,6 @@
       position: relative;
     }
 
-    /* Wix Studio Space: Dynamic Background & Mouse Spotlight */
     .space-grid {
       position: fixed;
       inset: 0;
@@ -87,7 +90,6 @@
       transition: background 0.1s ease;
     }
 
-    /* Top Reading Progress */
     #progress-strip {
       position: fixed;
       top: 0;
@@ -106,21 +108,20 @@
       z-index: 2;
     }
 
-    /* Ishan Developer: Floating Glass Island Dock */
+    /* Floating Dock */
     .dock-holder {
       position: sticky;
       top: 1.5rem;
       display: flex;
       justify-content: center;
       z-index: 1000;
-      margin: 1.5rem 0 4rem;
+      margin: 1.5rem 0 3rem;
     }
 
     .island-dock {
       background: var(--dock-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       padding: 0.35rem 0.5rem;
       border-radius: 100px;
       display: flex;
@@ -157,10 +158,60 @@
       border-radius: 50%;
     }
 
-    /* Hero Section */
+    /* Master Tab Switcher */
+    .master-switcher-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .master-switch {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      padding: 0.4rem;
+      border-radius: 100px;
+      display: inline-flex;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .master-highlight {
+      position: absolute;
+      top: 0.4rem;
+      left: 0.4rem;
+      height: calc(100% - 0.8rem);
+      background: var(--text);
+      border-radius: 50px;
+      transition: transform 0.35s var(--spring), width 0.35s var(--spring);
+      z-index: 1;
+    }
+
+    .master-tab {
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .master-tab.active {
+      color: var(--bg);
+    }
+
+    /* Hero */
     .hero {
       text-align: center;
-      padding: 3rem 0 4.5rem;
+      padding: 1rem 0 3.5rem;
     }
 
     .authority-badge {
@@ -176,7 +227,7 @@
       font-size: 0.78rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
 
     .pulsing-pip {
@@ -189,32 +240,31 @@
 
     .hero-title {
       font-family: 'Newsreader', serif;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem);
       font-weight: 500;
-      line-height: 1.08;
+      line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero-title em {
       font-style: italic;
-      color: var(--accent);
     }
 
     .hero-summary {
       max-width: 680px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto;
       font-size: 1.1rem;
       color: var(--muted);
       line-height: 1.7;
     }
 
-    /* Authority Metrics (Sunaina Khatri Style) */
+    /* Metrics */
     .metrics-bar {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
-      margin-bottom: 5rem;
+      margin-bottom: 4rem;
     }
 
     .metric-pod {
@@ -235,7 +285,6 @@
       font-family: 'Space Grotesk', monospace;
       font-size: 2.2rem;
       font-weight: 700;
-      color: var(--accent);
       margin-bottom: 0.3rem;
     }
 
@@ -247,116 +296,30 @@
       color: var(--muted);
     }
 
-    /* Bento Disciplines */
-    .disciplines {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 5rem;
-    }
-
-    .discipline-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      border-radius: 20px;
-      padding: 2.5rem;
-      transition: all 0.3s var(--spring);
-      position: relative;
-    }
-    .discipline-card:hover {
-      border-color: var(--border-hover);
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-4px);
-    }
-
-    .kicker-tag {
-      font-family: 'Space Grotesk', monospace;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .discipline-card h3 {
-      font-family: 'Newsreader', serif;
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 0.8rem;
-    }
-
-    .discipline-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    /* ChainGPT Search & Cobo Swiss Category Slider Header */
-    .deck-controls {
+    /* Section Headers */
+    .section-head {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
+      align-items: flex-end;
+      margin-bottom: 1.8rem;
       flex-wrap: wrap;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
-    .sliding-toggle-track {
-      position: relative;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      padding: 0.35rem;
-      border-radius: 50px;
-      display: inline-flex;
-    }
-
-    .slide-highlight {
-      position: absolute;
-      top: 0.35rem;
-      left: 0.35rem;
-      height: calc(100% - 0.7rem);
-      background: var(--accent);
-      border-radius: 50px;
-      transition: transform 0.35s var(--spring), width 0.35s var(--spring);
-      z-index: 1;
-    }
-
-    .toggle-choice {
-      position: relative;
-      z-index: 2;
-      background: transparent;
-      border: none;
-      padding: 0.5rem 1.4rem;
+    .section-tag {
       font-family: 'Space Grotesk', monospace;
-      font-size: 0.82rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      color: var(--muted);
-      cursor: pointer;
-      transition: color 0.25s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
     }
-    .toggle-choice.active { color: #FFFFFF; }
 
-    .search-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      border-radius: 50px;
-      padding: 0.4rem 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      width: 260px;
-    }
-    .search-box input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.85rem;
-      width: 100%;
+    .section-title {
+      font-family: 'Newsreader', serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      line-height: 1.1;
     }
 
     .carousel-arrows {
@@ -365,8 +328,8 @@
     }
 
     .nav-arrow {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--card-bg);
@@ -380,22 +343,18 @@
     .nav-arrow:hover {
       background: var(--text);
       color: var(--bg);
-      transform: scale(1.05);
     }
 
-    /* Kinetic Drag-to-Scroll Horizontal Carousel */
+    /* Kinetic Carousel */
     .slider-viewport {
       overflow-x: auto;
       scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
       scrollbar-width: none;
       cursor: grab;
+      margin-bottom: 4rem;
     }
-    .slider-viewport.active-drag {
-      cursor: grabbing;
-      scroll-behavior: auto;
-    }
+    .slider-viewport.active-drag { cursor: grabbing; scroll-behavior: auto; }
     .slider-viewport::-webkit-scrollbar { display: none; }
 
     .slider-track {
@@ -405,16 +364,16 @@
     }
 
     .memo-card {
-      width: 380px;
+      width: 360px;
       background: var(--card-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(16px);
       border-radius: 20px;
-      padding: 2.4rem;
+      padding: 2.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 420px;
+      min-height: 380px;
       box-shadow: var(--shadow);
       transition: all 0.3s var(--spring);
       user-select: none;
@@ -422,7 +381,7 @@
     .memo-card:hover {
       border-color: var(--border-hover);
       box-shadow: var(--shadow-hover);
-      transform: translateY(-6px);
+      transform: translateY(-5px);
     }
 
     .memo-meta {
@@ -440,8 +399,6 @@
       padding: 0.3rem 0.8rem;
       border-radius: 50px;
     }
-    .badge-fdd { color: var(--fdd); background: rgba(2, 132, 199, 0.1); }
-    .badge-mind { color: var(--mindset); background: rgba(217, 119, 6, 0.1); }
 
     .read-time {
       font-family: 'Space Grotesk', monospace;
@@ -451,7 +408,7 @@
 
     .memo-title {
       font-family: 'Newsreader', serif;
-      font-size: 1.65rem;
+      font-size: 1.55rem;
       font-weight: 500;
       line-height: 1.25;
       margin-bottom: 0.8rem;
@@ -471,15 +428,91 @@
       font-size: 0.82rem;
       font-weight: 700;
       color: var(--text);
-      margin-top: 1.8rem;
+      margin-top: 1.6rem;
       transition: gap 0.2s ease;
     }
-    .memo-card:hover .memo-read-cta {
-      color: var(--accent);
-      gap: 0.8rem;
+    .memo-card:hover .memo-read-cta { gap: 0.8rem; }
+
+    /* Work With Us / Consultation Block */
+    .intake-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 3.5rem;
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
     }
 
-    /* Reading Drawer Modal */
+    .intake-card h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .intake-card p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .full-row { grid-column: span 2; }
+
+    .form-ctrl label {
+      display: block;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-ctrl input, .form-ctrl select, .form-ctrl textarea {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-ctrl input:focus, .form-ctrl select:focus, .form-ctrl textarea:focus {
+      border-color: var(--text);
+    }
+
+    .submit-btn {
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      padding: 0.95rem 2.2rem;
+      border-radius: 50px;
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    /* Modal Article Drawer */
     .reader-modal {
       position: fixed;
       inset: 0;
@@ -496,7 +529,7 @@
       border: 1px solid var(--border-hover);
       border-radius: 24px;
       width: 100%;
-      max-width: 780px;
+      max-width: 760px;
       max-height: 85vh;
       overflow-y: auto;
       padding: 3.5rem;
@@ -519,48 +552,31 @@
       place-content: center;
     }
 
-    /* Bottom Intake Banner */
-    .connect-card {
-      margin-top: 5rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      border-radius: 24px;
-      padding: 3.5rem;
+    /* Tab Content Visibility */
+    .view-panel { display: none; }
+    .view-panel.active-view { display: block; }
+
+    /* Footer */
+    footer {
+      margin-top: 6rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .connect-left h4 {
-      font-family: 'Newsreader', serif;
-      font-size: 2.2rem;
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
-    .connect-left p { color: var(--muted); font-size: 1rem; }
-
-    .trans-btn {
-      background: var(--text);
-      color: var(--bg);
-      text-decoration: none;
-      padding: 0.9rem 2.2rem;
-      border-radius: 50px;
       font-family: 'Space Grotesk', monospace;
-      font-weight: 700;
-      font-size: 0.88rem;
-      transition: transform 0.2s ease;
+      font-size: 0.8rem;
+      color: var(--dim);
     }
-    .trans-btn:hover { transform: scale(1.05); }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { color: var(--text); }
 
-    @media (max-width: 860px) {
-      .metrics-bar { grid-template-columns: 1fr 1fr; }
-      .disciplines { grid-template-columns: 1fr; }
-      .memo-card { width: 310px; min-height: 380px; }
-      .connect-card { flex-direction: column; align-items: flex-start; }
-      .search-box { width: 100%; }
+    @media (max-width: 820px) {
+      .metrics-bar { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .full-row { grid-column: span 1; }
+      .memo-card { width: 300px; min-height: 350px; }
+      .intake-card { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -575,158 +591,289 @@
     <!-- Floating Dock -->
     <div class="dock-holder">
       <nav class="island-dock">
-        <a href="#about" class="dock-btn active">JJ</a>
-        <a href="#feed" class="dock-btn">Writings</a>
+        <a href="#" class="dock-btn active">JJ</a>
+        <a href="#articles-anchor" class="dock-btn">Articles</a>
+        <a href="#consult-anchor" class="dock-btn">Work With Me</a>
         <a href="https://linkedin.com" target="_blank" rel="noopener" class="dock-btn">LinkedIn ↗</a>
-        <button class="dock-btn theme-trigger" id="theme-btn" aria-label="Toggle Mode">☼</button>
+        <button class="dock-btn theme-trigger" id="theme-btn" aria-label="Toggle Atmosphere">☼</button>
       </nav>
     </div>
 
-    <!-- Hero -->
-    <header class="hero" id="about">
-      <div class="authority-badge">
-        <span class="pulsing-pip"></span>
-        <span>Chartered Accountant · FDD Specialist · Mindset</span>
+    <!-- Master Perspective Switcher (Two Tabs) -->
+    <div class="master-switcher-wrap">
+      <div class="master-switch">
+        <div class="master-highlight" id="master-highlight"></div>
+        <button class="master-tab active" onclick="switchPerspective('ca', this)">
+          <span>✦</span> Chartered Accountant
+        </button>
+        <button class="master-tab" onclick="switchPerspective('mindset', this)">
+          <span>☀</span> Life Coaching
+        </button>
       </div>
+    </div>
 
-      <h1 class="hero-title">
-        Audit the numbers.<br />
-        <em>Calibrate the mind.</em>
-      </h1>
+    <!-- ================= PERSPECTIVE 1: CHARTERED ACCOUNTANT ================= -->
+    <div class="view-panel active-view" id="panel-ca">
+      
+      <!-- Hero -->
+      <header class="hero">
+        <div class="authority-badge">
+          <span class="pulsing-pip"></span>
+          <span>Chartered Accountant · Buy-Side Financial Due Diligence</span>
+        </div>
+        <h1 class="hero-title">
+          Uncovering deal truth.<br />
+          <em style="color: var(--fdd);">Defending transaction capital.</em>
+        </h1>
+        <p class="hero-summary">
+          Independent transaction advisory specializing in Quality of Earnings (QoE), EBITDA normalization bridges, and identifying off-balance-sheet value leakage before LOI finalization.
+        </p>
+      </header>
 
-      <p class="hero-summary">
-        A private advisory practice bridging buy-side Quality of Earnings (QoE) analysis with executive cognitive architecture for founders and dealmakers.
-      </p>
-    </header>
+      <!-- CA Metrics -->
+      <section class="metrics-bar">
+        <div class="metric-pod">
+          <div class="metric-val" style="color: var(--fdd);">CA</div>
+          <div class="metric-title">Fiduciary Diligence</div>
+        </div>
+        <div class="metric-pod">
+          <div class="metric-val" style="color: var(--fdd);">FDD</div>
+          <div class="metric-title">Quality of Earnings</div>
+        </div>
+        <div class="metric-pod">
+          <div class="metric-val" style="color: var(--fdd);">NWC</div>
+          <div class="metric-title">Working Capital Pegs</div>
+        </div>
+      </section>
 
-    <!-- Authority Metrics -->
-    <section class="metrics-bar">
-      <div class="metric-pod">
-        <div class="metric-val">CA</div>
-        <div class="metric-title">Fiduciary Rigor</div>
-      </div>
-      <div class="metric-pod">
-        <div class="metric-val">FDD</div>
-        <div class="metric-title">Buy-Side Advisory</div>
-      </div>
-      <div class="metric-pod">
-        <div class="metric-val">1:1</div>
-        <div class="metric-title">Mindset Coaching</div>
-      </div>
-      <div class="metric-pod">
-        <div class="metric-val">100%</div>
-        <div class="metric-title">Independent Focus</div>
-      </div>
-    </section>
-
-    <!-- Bento Disciplines -->
-    <section class="disciplines">
-      <div class="discipline-card">
-        <div class="kicker-tag" style="color: var(--fdd);">Vector 01</div>
-        <h3>Financial Due Diligence</h3>
-        <p>Uncovering off-balance-sheet exposures, auditing aggressive EBITDA add-backs, evaluating recurring revenue quality, and negotiating Net Working Capital pegs.</p>
-      </div>
-
-      <div class="discipline-card">
-        <div class="kicker-tag" style="color: var(--accent);">Vector 02</div>
-        <h3>Executive Mindset</h3>
-        <p>Cognitive frameworks designed specifically for finance leaders. Overcoming analytical paralysis, mitigating deal fatigue, and executing with imperfect information.</p>
-      </div>
-    </section>
-
-    <!-- Kinetic Carousel & ChainGPT Controls -->
-    <section id="feed">
-      <div class="deck-controls">
-        <div class="sliding-toggle-track">
-          <div class="slide-highlight" id="slide-highlight"></div>
-          <button class="toggle-choice active" onclick="filterMemos('all', this)">All Writings</button>
-          <button class="toggle-choice" onclick="filterMemos('fdd', this)">Due Diligence</button>
-          <button class="toggle-choice" onclick="filterMemos('mind', this)">Mindset</button>
+      <!-- CA Articles Section -->
+      <section id="articles-anchor">
+        <div class="section-head">
+          <div>
+            <div class="section-tag" style="color: var(--fdd);">Intelligence Dispatches</div>
+            <h2 class="section-title">Financial Due Diligence Articles</h2>
+          </div>
+          <div class="carousel-arrows">
+            <button class="nav-arrow" onclick="scrollCarousel('ca-slider', 'left')">←</button>
+            <button class="nav-arrow" onclick="scrollCarousel('ca-slider', 'right')">→</button>
+          </div>
         </div>
 
-        <div class="search-box">
-          <span style="color: var(--dim);">⌕</span>
-          <input type="text" id="filter-search" placeholder="Search dispatches..." oninput="handleMemoSearch(this.value)" />
+        <div class="slider-viewport" id="ca-slider">
+          <div class="slider-track">
+            
+            <article class="memo-card" onclick="openMemo(0)">
+              <div>
+                <div class="memo-meta">
+                  <span class="domain-badge" style="color: var(--fdd); background: rgba(var(--fdd-rgb), 0.1);">Due Diligence</span>
+                  <span class="read-time">5 MIN READ</span>
+                </div>
+                <h3 class="memo-title">The Phantom EBITDA: Spotting Hidden Margin Compression</h3>
+                <p class="memo-excerpt">Three subtle operational add-backs commonly disguised as non-recurring adjustments in buy-side packages.</p>
+              </div>
+              <div class="memo-read-cta" style="color: var(--fdd);">Read Article <span>→</span></div>
+            </article>
+
+            <article class="memo-card" onclick="openMemo(1)">
+              <div>
+                <div class="memo-meta">
+                  <span class="domain-badge" style="color: var(--fdd); background: rgba(var(--fdd-rgb), 0.1);">Due Diligence</span>
+                  <span class="read-time">6 MIN READ</span>
+                </div>
+                <h3 class="memo-title">Net Working Capital Pegs: Guarding the Purchase Price</h3>
+                <p class="memo-excerpt">Preventing post-closing cash leakage caused by seasonal inventory build-ups in definitive purchase agreements.</p>
+              </div>
+              <div class="memo-read-cta" style="color: var(--fdd);">Read Article <span>→</span></div>
+            </article>
+
+            <article class="memo-card" onclick="openMemo(2)">
+              <div>
+                <div class="memo-meta">
+                  <span class="domain-badge" style="color: var(--fdd); background: rgba(var(--fdd-rgb), 0.1);">Due Diligence</span>
+                  <span class="read-time">7 MIN READ</span>
+                </div>
+                <h3 class="memo-title">Debt &amp; Debt-Like Traps: Beyond Bank Borrowings</h3>
+                <p class="memo-excerpt">Unfunded pensions, overdue trade payables, and customer rebate liabilities that quietly erode equity value.</p>
+              </div>
+              <div class="memo-read-cta" style="color: var(--fdd);">Read Article <span>→</span></div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CA Work With Us / Mandate Form -->
+      <section class="intake-card" id="consult-anchor">
+        <h3>Retain Deal Advisory / FDD Mandates</h3>
+        <p>Available for select buy-side transaction diligence, seller readiness assessments, and quality of earnings audits.</p>
+
+        <form class="form-grid" onsubmit="event.preventDefault(); alert('Mandate inquiry transmitted. We will respond within 24 hours.');">
+          <div class="form-ctrl">
+            <label>Name / Firm</label>
+            <input type="text" placeholder="e.g., Alexander Vance" required />
+          </div>
+          <div class="form-ctrl">
+            <label>Corporate Email</label>
+            <input type="email" placeholder="alexander@capital.com" required />
+          </div>
+          <div class="form-ctrl full-row">
+            <label>Transaction Mandate Type</label>
+            <select>
+              <option>Buy-Side Quality of Earnings (QoE)</option>
+              <option>Working Capital Peg &amp; SPA Review</option>
+              <option>Vendor Due Diligence (Sell-Side)</option>
+              <option>Post-Merger Financial Integration</option>
+            </select>
+          </div>
+          <div class="form-ctrl full-row">
+            <label>Deal Context &amp; Timeline</label>
+            <textarea rows="4" placeholder="Target sector, estimated transaction size, target closing date..."></textarea>
+          </div>
+          <div class="full-row">
+            <button type="submit" class="submit-btn">Transmit Advisory Request ↗</button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+
+
+    <!-- ================= PERSPECTIVE 2: LIFE & MINDSET COACHING ================= -->
+    <div class="view-panel" id="panel-mindset">
+      
+      <!-- Hero -->
+      <header class="hero">
+        <div class="authority-badge">
+          <span class="pulsing-pip" style="background: var(--mindset); box-shadow: 0 0 10px var(--mindset);"></span>
+          <span>Executive Mindset &amp; High-Performance Coach</span>
+        </div>
+        <h1 class="hero-title">
+          Master the inner narrative.<br />
+          <em style="color: var(--mindset);">Execute with conviction under pressure.</em>
+        </h1>
+        <p class="hero-summary">
+          Cognitive coaching designed specifically for finance operators, senior leaders, and high-achievers struggling with analysis paralysis, deal exhaustion, and high-stakes uncertainty.
+        </p>
+      </header>
+
+      <!-- Mindset Metrics -->
+      <section class="metrics-bar">
+        <div class="metric-pod">
+          <div class="metric-val" style="color: var(--mindset);">1:1</div>
+          <div class="metric-title">Executive Coaching</div>
+        </div>
+        <div class="metric-pod">
+          <div class="metric-val" style="color: var(--mindset);">70%</div>
+          <div class="metric-title">Conviction Framework</div>
+        </div>
+        <div class="metric-pod">
+          <div class="metric-val" style="color: var(--mindset);">0%</div>
+          <div class="metric-title">Analytical Paralysis</div>
+        </div>
+      </section>
+
+      <!-- Mindset Articles Section -->
+      <section>
+        <div class="section-head">
+          <div>
+            <div class="section-tag" style="color: var(--mindset);">Cognitive Dispatches</div>
+            <h2 class="section-title">Mindset &amp; Leadership Articles</h2>
+          </div>
+          <div class="carousel-arrows">
+            <button class="nav-arrow" onclick="scrollCarousel('mind-slider', 'left')">←</button>
+            <button class="nav-arrow" onclick="scrollCarousel('mind-slider', 'right')">→</button>
+          </div>
         </div>
 
-        <div class="carousel-arrows">
-          <button class="nav-arrow" onclick="scrollCarousel('left')" aria-label="Slide Left">←</button>
-          <button class="nav-arrow" onclick="scrollCarousel('right')" aria-label="Slide Right">→</button>
+        <div class="slider-viewport" id="mind-slider">
+          <div class="slider-track">
+            
+            <article class="memo-card" onclick="openMemo(3)">
+              <div>
+                <div class="memo-meta">
+                  <span class="domain-badge" style="color: var(--mindset); background: rgba(var(--mindset-rgb), 0.1);">Mindset</span>
+                  <span class="read-time">4 MIN READ</span>
+                </div>
+                <h3 class="memo-title">The Analytical Paralyzer: Why Precision Kills Strategic Speed</h3>
+                <p class="memo-excerpt">Auditors are wired for zero variance. Why executing with 70% data fidelity yields higher asymmetric returns.</p>
+              </div>
+              <div class="memo-read-cta" style="color: var(--mindset);">Read Article <span>→</span></div>
+            </article>
+
+            <article class="memo-card" onclick="openMemo(4)">
+              <div>
+                <div class="memo-meta">
+                  <span class="domain-badge" style="color: var(--mindset); background: rgba(var(--mindset-rgb), 0.1);">Mindset</span>
+                  <span class="read-time">7 MIN READ</span>
+                </div>
+                <h3 class="memo-title">The Psychology of Closing: Staying Grounded Under Pressure</h3>
+                <p class="memo-excerpt">How deal fatigue leads executive teams into uncalculated concessions during eleventh-hour negotiations.</p>
+              </div>
+              <div class="memo-read-cta" style="color: var(--mindset);">Read Article <span>→</span></div>
+            </article>
+
+            <article class="memo-card" onclick="openMemo(5)">
+              <div>
+                <div class="memo-meta">
+                  <span class="domain-badge" style="color: var(--mindset); background: rgba(var(--mindset-rgb), 0.1);">Mindset</span>
+                  <span class="read-time">5 MIN READ</span>
+                </div>
+                <h3 class="memo-title">Rebuilding Identity Beyond the Ledger</h3>
+                <p class="memo-excerpt">The psychological transition from technical performer to visionary leader without succumbing to imposter syndrome.</p>
+              </div>
+              <div class="memo-read-cta" style="color: var(--mindset);">Read Article <span>→</span></div>
+            </article>
+
+          </div>
         </div>
+      </section>
+
+      <!-- Mindset Work With Us / Coaching Form -->
+      <section class="intake-card">
+        <h3>Book a 1:1 Executive Discovery Session</h3>
+        <p>Confidential mindset calibration sessions for executives, partners, and founders navigating high-pressure inflection points.</p>
+
+        <form class="form-grid" onsubmit="event.preventDefault(); alert('Discovery application received. We will be in touch shortly.');">
+          <div class="form-ctrl">
+            <label>Full Name</label>
+            <input type="text" placeholder="e.g., Sarah Jenkins" required />
+          </div>
+          <div class="form-ctrl">
+            <label>Personal / Work Email</label>
+            <input type="email" placeholder="sarah@firm.com" required />
+          </div>
+          <div class="form-ctrl full-row">
+            <label>Primary Focus Area</label>
+            <select>
+              <option>Overcoming Decision &amp; Analytical Paralysis</option>
+              <option>Managing High-Stakes Transaction Exhaustion</option>
+              <option>Career Transition to Leadership / Operator</option>
+              <option>Cognitive Resilience &amp; Daily Protocols</option>
+            </select>
+          </div>
+          <div class="form-ctrl full-row">
+            <label>Current Challenge / Mindset Bottleneck</label>
+            <textarea rows="4" placeholder="What is currently slowing your decision-making or draining your stamina?"></textarea>
+          </div>
+          <div class="full-row">
+            <button type="submit" class="submit-btn" style="background: var(--mindset); color: #000;">Apply for Discovery Session ↗</button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>JJ · CHARTERED ACCOUNTANT &amp; EXECUTIVE COACH</div>
+      <div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">CONNECT VIA LINKEDIN ↗</a>
       </div>
-
-      <!-- Drag & Arrow Horizontal Carousel -->
-      <div class="slider-viewport" id="slider-viewport">
-        <div class="slider-track" id="slider-track">
-          
-          <!-- Memo 01 -->
-          <article class="memo-card" data-domain="fdd" onclick="openReader(0)">
-            <div>
-              <div class="memo-meta">
-                <span class="domain-badge badge-fdd">Due Diligence</span>
-                <span class="read-time">5 MIN READ</span>
-              </div>
-              <h2 class="memo-title">The Phantom EBITDA: Where Target CIMs Hide Margin Attrition</h2>
-              <p class="memo-excerpt">Three subtle operational add-backs commonly disguised as non-recurring adjustments in buy-side packages.</p>
-            </div>
-            <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-          </article>
-
-          <!-- Memo 02 -->
-          <article class="memo-card" data-domain="mind" onclick="openReader(1)">
-            <div>
-              <div class="memo-meta">
-                <span class="domain-badge badge-mind">Mindset</span>
-                <span class="read-time">4 MIN READ</span>
-              </div>
-              <h2 class="memo-title">The Analytical Paralyzer: Why Precision Kills Strategic Speed</h2>
-              <p class="memo-excerpt">Auditors are wired for zero variance. Why executing with 70% data fidelity yields higher asymmetric returns.</p>
-            </div>
-            <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-          </article>
-
-          <!-- Memo 03 -->
-          <article class="memo-card" data-domain="fdd" onclick="openReader(2)">
-            <div>
-              <div class="memo-meta">
-                <span class="domain-badge badge-fdd">Due Diligence</span>
-                <span class="read-time">6 MIN READ</span>
-              </div>
-              <h2 class="memo-title">Net Working Capital Pegs: Guarding the Purchase Price</h2>
-              <p class="memo-excerpt">Preventing post-closing cash leakage caused by seasonal inventory build-ups in definitive purchase agreements.</p>
-            </div>
-            <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-          </article>
-
-          <!-- Memo 04 -->
-          <article class="memo-card" data-domain="mind" onclick="openReader(3)">
-            <div>
-              <div class="memo-meta">
-                <span class="domain-badge badge-mind">Mindset</span>
-                <span class="read-time">7 MIN READ</span>
-              </div>
-              <h2 class="memo-title">The Psychology of Closing: Staying Grounded Under Pressure</h2>
-              <p class="memo-excerpt">How deal fatigue leads executive teams into uncalculated concessions during eleventh-hour negotiations.</p>
-            </div>
-            <div class="memo-read-cta">Read Dispatch <span>→</span></div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Connect / Intake -->
-    <section class="connect-card">
-      <div class="connect-left">
-        <h4>Initiate Private Advisory</h4>
-        <p>Available for select buy-side transaction diligence and 1-on-1 executive coaching.</p>
-      </div>
-      <a href="https://linkedin.com" target="_blank" rel="noopener" class="trans-btn">Connect on LinkedIn ↗</a>
-    </section>
+    </footer>
 
   </div>
 
-  <!-- In-Line Article Drawer -->
+  <!-- In-Place Article Drawer Modal -->
   <div class="reader-modal" id="reader-modal" onclick="closeModalOnBackdrop(event)">
     <div class="reader-frame">
       <button class="close-btn" onclick="dismissReader()">✕</button>
@@ -735,7 +882,7 @@
   </div>
 
   <script>
-    // 1. Wix Space: Mouse-Tracking Spotlight
+    // 1. Mouse Spotlight
     window.addEventListener('mousemove', (e) => {
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
       document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
@@ -747,66 +894,57 @@
       document.getElementById('progress-strip').style.width = (document.documentElement.scrollTop / h) * 100 + '%';
     });
 
-    // 3. Ishan-Style Sliding Indicator Physics
-    const highlight = document.getElementById('slide-highlight');
+    // 3. Two-Tab Switcher (CA vs Life Coaching)
+    const masterHighlight = document.getElementById('master-highlight');
 
-    function syncHighlight(btn) {
-      highlight.style.width = btn.offsetWidth + 'px';
-      highlight.style.transform = `translateX(${btn.offsetLeft - btn.parentElement.offsetLeft - 5}px)`;
+    function syncMasterHighlight(btn) {
+      masterHighlight.style.width = btn.offsetWidth + 'px';
+      masterHighlight.style.transform = `translateX(${btn.offsetLeft - btn.parentElement.offsetLeft - 4}px)`;
     }
 
     window.addEventListener('load', () => {
-      const active = document.querySelector('.toggle-choice.active');
-      if (active) syncHighlight(active);
+      const activeTab = document.querySelector('.master-tab.active');
+      if (activeTab) syncMasterHighlight(activeTab);
     });
 
-    let currentCat = 'all';
-
-    function filterMemos(cat, btn) {
-      currentCat = cat;
-      document.querySelectorAll('.toggle-choice').forEach(b => b.classList.remove('active'));
+    function switchPerspective(type, btn) {
+      document.querySelectorAll('.master-tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      syncHighlight(btn);
-      executeFilter();
+      syncMasterHighlight(btn);
+
+      document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active-view'));
+      if (type === 'ca') {
+        document.getElementById('panel-ca').classList.add('active-view');
+      } else {
+        document.getElementById('panel-mindset').classList.add('active-view');
+      }
     }
 
-    function handleMemoSearch(val) {
-      executeFilter(val.toLowerCase());
+    // 4. Kinetic Carousel (Drag + Arrows)
+    function scrollCarousel(id, dir) {
+      const el = document.getElementById(id);
+      el.scrollBy({ left: dir === 'left' ? -380 : 380, behavior: 'smooth' });
     }
 
-    function executeFilter(query = '') {
-      const cards = document.querySelectorAll('.memo-card');
-      cards.forEach(card => {
-        const catMatch = currentCat === 'all' || card.dataset.domain === currentCat;
-        const textMatch = card.innerText.toLowerCase().includes(query);
-        card.style.display = (catMatch && textMatch) ? 'flex' : 'none';
+    document.querySelectorAll('.slider-viewport').forEach(vp => {
+      let isDown = false, startX, scrollLeft;
+      vp.addEventListener('mousedown', (e) => {
+        isDown = true;
+        vp.classList.add('active-drag');
+        startX = e.pageX - vp.offsetLeft;
+        scrollLeft = vp.scrollLeft;
       });
-    }
-
-    // 4. Kinetic Carousel (Drag + Arrow Control)
-    const viewport = document.getElementById('slider-viewport');
-
-    function scrollCarousel(dir) {
-      viewport.scrollBy({ left: dir === 'left' ? -400 : 400, behavior: 'smooth' });
-    }
-
-    let isDown = false, startX, scrollLeft;
-    viewport.addEventListener('mousedown', (e) => {
-      isDown = true;
-      viewport.classList.add('active-drag');
-      startX = e.pageX - viewport.offsetLeft;
-      scrollLeft = viewport.scrollLeft;
-    });
-    viewport.addEventListener('mouseleave', () => { isDown = false; viewport.classList.remove('active-drag'); });
-    viewport.addEventListener('mouseup', () => { isDown = false; viewport.classList.remove('active-drag'); });
-    viewport.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - viewport.offsetLeft;
-      viewport.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      vp.addEventListener('mouseleave', () => { isDown = false; vp.classList.remove('active-drag'); });
+      vp.addEventListener('mouseup', () => { isDown = false; vp.classList.remove('active-drag'); });
+      vp.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - vp.offsetLeft;
+        vp.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
     });
 
-    // 5. Daylight/Dark Toggle
+    // 5. Daylight / Dark Atmosphere Toggle
     const themeBtn = document.getElementById('theme-btn');
     const doc = document.documentElement;
 
@@ -821,38 +959,48 @@
       setMode(doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
 
-    // 6. In-Place Article Drawer
-    const memos = [
+    // 6. Article Modal Data
+    const articles = [
       {
-        tag: "FINANCIAL DUE DILIGENCE · 5 MIN",
-        title: "The Phantom EBITDA: Where Target CIMs Hide Margin Attrition",
+        tag: "FINANCIAL DUE DILIGENCE · 5 MIN READ",
+        title: "The Phantom EBITDA: Spotting Hidden Margin Compression",
         body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In lower middle-market transactions, Confidential Information Memorandums routinely claim run-rate adjustments that present an overly optimistic earnings profile. Discretionary founder costs, one-time software licenses, and supply chain rebates frequently mask genuine cost inflation.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>As buy-side advisors, our task is not merely reconciling numbers back to the trial balance; it is probing recurring operational reality. Normalizing EBITDA requires rebuilding the cost baseline with market-rate executive compensations, trailing freight variances, and maintenance capex.</p>"
       },
       {
-        tag: "EXECUTIVE MINDSET · 4 MIN",
-        title: "The Analytical Paralyzer: Why Precision Kills Strategic Speed",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Chartered Accountants and finance operators are trained in environments where errors carry severe consequences. This creates an unexamined assumption: that executing without complete datasets constitutes an unacceptable risk.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In corporate leadership, the cost of delayed action often exceeds the cost of a directional error. Moving forward decisively with 70% data fidelity is the fundamental dividing line between an auditor and an executive operator.</p>"
-      },
-      {
-        tag: "TRANSACTION STRUCTURING · 6 MIN",
+        tag: "TRANSACTION STRUCTURING · 6 MIN READ",
         title: "Net Working Capital Pegs: Guarding the Purchase Price",
         body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>The Working Capital Reference Target is frequently negotiated in the final stretch of agreement drafting, yet it possesses the power to shift purchase considerations dollar-for-dollar.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Relying on a static 12-month trailing average often penalizes rapidly expanding targets or yields windfall concessions to seasonal sellers. We construct normalized windows factoring in intra-month inventory peaks and extended supplier trade payables.</p>"
       },
       {
-        tag: "LEADERSHIP PSYCHOLOGY · 7 MIN",
+        tag: "DEAL RISKS · 7 MIN READ",
+        title: "Debt & Debt-Like Traps: Beyond Bank Borrowings",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Too many deal models focus strictly on funded debt balances. But true balance sheet value leakage hides in accrued bonuses, warranty reserves, deferred vendor commitments, and underfunded severance liabilities.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>A thorough due diligence process recategorizes these hidden commitments as dollar-for-dollar reductions to the equity purchase price.</p>"
+      },
+      {
+        tag: "COGNITIVE ARCHITECTURE · 4 MIN READ",
+        title: "The Analytical Paralyzer: Why Precision Kills Strategic Speed",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Chartered Accountants and finance operators are trained in environments where errors carry severe regulatory consequences. This creates an unexamined assumption: that executing without complete datasets constitutes an unacceptable risk.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>In corporate leadership, the cost of delayed action often exceeds the cost of a directional error. Moving forward decisively with 70% data fidelity is the fundamental dividing line between an auditor and an executive operator.</p>"
+      },
+      {
+        tag: "LEADERSHIP PSYCHOLOGY · 7 MIN READ",
         title: "The Psychology of Closing: Staying Grounded Under Pressure",
         body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Deal fatigue is an unquantified liability. As closing timelines drag past 90 days, cognitive depletion leads deal teams into hasty compromises on escrow periods and indemnification caps.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>Maintaining strategic leverage requires structural cognitive boundaries: separating negotiation teams into analytical and closing units to safeguard deal economics.</p>"
+      },
+      {
+        tag: "IDENTITY & MASTERY · 5 MIN READ",
+        title: "Rebuilding Identity Beyond the Ledger",
+        body: "<p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>High-performing professionals often anchor their entire sense of worth to flawlessness and technical correctness. When stepping into leadership roles where ambiguity rules, this creates internal friction and self-doubt.</p><p style='margin-bottom:1.2rem;line-height:1.8;color:var(--muted);'>True executive authority is not knowing every answer—it is possessing the grounded psychological resilience to hold space when no clean answers exist.</p>"
       }
     ];
 
-    function openReader(idx) {
-      const m = memos[idx];
+    function openMemo(idx) {
+      const m = articles[idx];
       document.getElementById('reader-content').innerHTML = `
         <div style="font-family:'Space Grotesk',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.75rem;">${m.tag}</div>
         <h2 style="font-family:'Newsreader',serif;font-size:2.2rem;font-weight:500;line-height:1.15;margin-bottom:1.5rem;">${m.title}</h2>
         <div>${m.body}</div>
         <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
-          <a href="https://linkedin.com" target="_blank" class="trans-btn" style="font-size:0.8rem;padding:0.6rem 1.4rem;">Discuss on LinkedIn ↗</a>
+          <a href="https://linkedin.com" target="_blank" class="submit-btn" style="display:inline-block;text-decoration:none;font-size:0.8rem;padding:0.6rem 1.4rem;width:auto;">Discuss on LinkedIn ↗</a>
         </div>
       `;
       document.getElementById('reader-modal').style.display = 'grid';
