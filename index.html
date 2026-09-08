@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | CA, Deal Advisory & Mindset</title>
+  
+  <!-- SEO & LinkedIn Preview Tags -->
+  <meta name="description" content="Essays on Financial Due Diligence, Transaction Advisory, and Executive Mindset by a Chartered Accountant." />
+  <meta property="og:title" content="Your Name | Financial Diligence & Mindset" />
+  <meta property="og:description" content="Insights on corporate transactions and clarity of mind." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Editorial Serif + Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAFAF9;
+      --card-bg: #FFFFFF;
+      --text-main: #1C1917;
+      --text-muted: #78716C;
+      --border: #E7E5E4;
+      --accent: #0F172A;
+      --tag-finance: #0369A1;
+      --tag-finance-bg: #E0F2FE;
+      --tag-mindset: #B45309;
+      --tag-mindset-bg: #FEF3C7;
+      --radius: 8px;
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0C0A09;
+      --card-bg: #1C1917;
+      --text-main: #F5F5F4;
+      --text-muted: #A8A29E;
+      --border: #292524;
+      --accent: #F8FAFC;
+      --tag-finance: #38BDF8;
+      --tag-finance-bg: rgba(56, 189, 248, 0.12);
+      --tag-mindset: #FBBF24;
+      --tag-mindset-bg: rgba(251, 191, 36, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 100;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Header */
+    header {
+      padding: 3rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand h1 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .brand p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.5rem 0.8rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--border);
+    }
+
+    /* Bio / Manifesto */
+    .bio {
+      padding: 2.5rem 0;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bio p {
+      margin-bottom: 1rem;
+    }
+
+    .bio p:last-child {
+      margin-bottom: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* Filter Tabs */
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      padding: 1.75rem 0 1rem;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+
+    /* Article List */
+    .article-list {
+      list-style: none;
+      margin-top: 1rem;
+      flex-grow: 1;
+    }
+
+    .article-card {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .article-card:hover .article-title {
+      color: var(--text-muted);
+      text-decoration: underline;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .tag-finance {
+      color: var(--tag-finance);
+      background: var(--tag-finance-bg);
+    }
+
+    .tag-mindset {
+      color: var(--tag-mindset);
+      background: var(--tag-mindset-bg);
+    }
+
+    .article-title {
+      font-family: 'Newsreader', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .article-summary {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    /* Newsletter / Future Community Box */
+    .newsletter-box {
+      margin: 3rem 0;
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .newsletter-box h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .newsletter-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .form-group input {
+      flex: 1;
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    .form-group button {
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .form-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <h1>Your Name, CA</h1>
+        <p>Transaction Advisory & Mindset Architect</p>
+      </div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle Mode">
+        <span id="theme-icon">☼</span>
+        <span id="theme-text">Day</span>
+      </button>
+    </header>
+
+    <!-- Bio Statement -->
+    <section class="bio">
+      <p>
+        I decode the balance sheet to uncover deal realities by day, and study human psychology to optimize leadership decisions by night.
+      </p>
+      <p>
+        Writing at the intersection of numbers and the human mind.
+      </p>
+    </section>
+
+    <!-- Pillar Filter Tabs -->
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterArticles('all')">All Writings</button>
+      <button class="filter-btn" onclick="filterArticles('finance')">Financial Due Diligence</button>
+      <button class="filter-btn" onclick="filterArticles('mindset')">Mindset & Coaching</button>
+    </div>
+
+    <!-- Article Entries -->
+    <ul class="article-list" id="posts">
+      
+      <!-- Article 1: Finance -->
+      <li data-category="finance">
+        <a href="#" class="article-card">
+          <div class="meta">
+            <span class="tag tag-finance">Due Diligence</span>
+            <span>·</span>
+            <span>4 min read</span>
+            <span>·</span>
+            <time>Oct 2026</time>
+          </div>
+          <h2 class="article-title">The Phantom EBITDA: Where Quality of Earnings Reports Go Wrong</h2>
+          <p class="article-summary">Three subtle non-operating adjustments that target companies often disguise as recurring earnings during buy-side diligence.</p>
+        </a>
+      </li>
+
+      <!-- Article 2: Mindset -->
+      <li data-category="mindset">
+        <a href="#" class="article-card">
+          <div class="meta">
+            <span class="tag tag-mindset">Mindset</span>
+            <span>·</span>
+            <span>6 min read</span>
+            <span>·</span>
+            <time>Sep 2026</time>
+          </div>
+          <h2 class="article-title">The Analytical Cage: Why High-Achievers Struggle with Uncertainty</h2>
+          <p class="article-summary">Finance trains us to eliminate risk with models. But life decisions require moving forward despite complete information absence.</p>
+        </a>
+      </li>
+
+      <!-- Article 3: Finance -->
+      <li data-category="finance">
+        <a href="#" class="article-card">
+          <div class="meta">
+            <span class="tag tag-finance">Due Diligence</span>
+            <span>·</span>
+            <span>5 min read</span>
+            <span>·</span>
+            <time>Aug 2026</time>
+          </div>
+          <h2 class="article-title">Working Capital Pegs: The Unsung Battlefield of M&amp;A Purchase Agreements</h2>
+          <p class="article-summary">How 60 days of post-closing adjustments can silently alter transaction value if the reference net working capital isn’t normalized.</p>
+        </a>
+      </li>
+
+    </ul>
+
+    <!-- Lightweight Community/Course Interest Box -->
+    <section class="newsletter-box">
+      <h3>Direct Notes & Future Cohorts</h3>
+      <p>Unfiltered notes on diligence, cognitive resilience, and early access to upcoming private workshops.</p>
+      <form class="form-group" onsubmit="event.preventDefault(); alert('Saved! (Connect this to your free Substack or ConvertKit)');">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Join Reader List</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>© <span id="year"></span> Your Name</div>
+      <div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Intelligent Daylight/Dark Mode
+    const themeBtn = document.getElementById('theme-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    
+    // Check local storage or system preference
+    const savedTheme = localStorage.getItem('theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        themeIcon.textContent = '☾';
+        themeText.textContent = 'Night';
+      } else {
+        themeIcon.textContent = '☼';
+        themeText.textContent = 'Day';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    applyTheme(savedTheme);
+
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    // 3. Dynamic Category Filtering
+    function filterArticles(category) {
+      const items = document.querySelectorAll('#posts li');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // 4. Current Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
