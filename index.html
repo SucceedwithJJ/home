@@ -102,7 +102,7 @@
       transition: background 0.3s ease;
     }
 
-    /* LEFT-HAND VERTICAL CREATIVE RAIL */
+    /* LEFT-HAND VERTICAL RAIL (Clean: No visible lock/admin button) */
     .left-rail {
       position: fixed;
       left: 2rem;
@@ -118,12 +118,12 @@
       background: var(--dock-bg);
       border: 1px solid var(--border);
       backdrop-filter: blur(20px);
-      padding: 1.2rem 0.6rem;
+      padding: 1.4rem 0.6rem;
       border-radius: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.5rem;
       box-shadow: var(--shadow);
     }
 
@@ -176,18 +176,7 @@
       transform: translateX(0);
     }
 
-    .rail-lock-btn {
-      background: transparent;
-      border: none;
-      color: var(--dim);
-      font-size: 0.85rem;
-      cursor: pointer;
-      margin-top: 0.4rem;
-      transition: color 0.2s ease;
-    }
-    .rail-lock-btn:hover { color: var(--accent); }
-
-    /* Centered Canvas Container */
+    /* Centered Canvas */
     .wrapper {
       max-width: 1040px;
       margin: 0 auto;
@@ -225,6 +214,8 @@
       padding: 0.5rem 0.9rem;
       color: var(--text);
       text-decoration: none;
+      cursor: pointer;
+      user-select: none;
     }
 
     .nav-tab {
@@ -282,21 +273,21 @@
     }
     .theme-trigger:hover { background: var(--card-inner); }
 
-    /* OWNER HUD (Invisible until logged in) */
+    /* OWNER HUD (Completely invisible to everyone else) */
     .owner-hud {
       display: none;
       position: fixed;
       bottom: 1.5rem;
       right: 1.5rem;
-      background: rgba(18, 20, 26, 0.9);
+      background: rgba(18, 20, 26, 0.95);
       border: 1px solid var(--accent);
       backdrop-filter: blur(20px);
       padding: 0.6rem 1rem;
       border-radius: 100px;
       z-index: 2000;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.6rem;
     }
     .owner-hud.visible { display: flex; }
 
@@ -306,6 +297,7 @@
       font-weight: 700;
       color: var(--accent);
       text-transform: uppercase;
+      padding-right: 0.4rem;
     }
 
     .owner-action-btn {
@@ -318,7 +310,9 @@
       padding: 0.4rem 0.85rem;
       border-radius: 50px;
       cursor: pointer;
+      transition: opacity 0.2s ease;
     }
+    .owner-action-btn:hover { opacity: 0.9; }
 
     .editable-outline {
       outline: 1px dashed var(--accent) !important;
@@ -680,12 +674,12 @@
   <div class="space-grid"></div>
   <div class="spotlight" id="spotlight"></div>
 
-  <!-- CREATIVE LEFT-HAND WAYPOINT RAIL -->
+  <!-- LEFT-HAND WAYPOINT RAIL (Completely Clean & Discrete) -->
   <aside class="left-rail">
     <div class="rail-track">
       <a href="#top" class="rail-item" title="Overview">
         <span class="rail-pip"></span>
-        <span class="rail-label">Top Brief</span>
+        <span class="rail-label">Overview</span>
       </a>
       <a href="#articles-section" class="rail-item" title="Articles">
         <span class="rail-pip"></span>
@@ -695,24 +689,25 @@
         <span class="rail-pip"></span>
         <span class="rail-label">Work With Me</span>
       </a>
-      <button class="rail-lock-btn" onclick="promptOwnerLogin()" title="Owner Access (Ctrl+E)">🔒</button>
     </div>
   </aside>
 
-  <!-- OWNER ACTIVE HUD -->
+  <!-- OWNER HUD (Only visible once you enter the secret passkey) -->
   <div class="owner-hud" id="owner-hud">
-    <span class="owner-badge">⚡ Owner Mode Active</span>
+    <span class="owner-badge">⚡ Owner Mode</span>
     <button class="owner-action-btn" onclick="openNewArticleModal()">+ Add Article</button>
     <button class="owner-action-btn" onclick="saveLiveEdits()" style="background:var(--text);color:var(--bg);">Save Edits</button>
+    <button class="owner-action-btn" onclick="changeOwnerPassword()" style="background:transparent;color:var(--text);border:1px solid var(--border);">Change Key</button>
     <button class="owner-action-btn" onclick="logoutOwner()" style="background:transparent;color:var(--dim);border:1px solid var(--border);">Exit</button>
   </div>
 
   <div class="wrapper" id="top">
 
-    <!-- FLOATING DOCK: Directly switches between Chartered Accountant and Life Coaching -->
+    <!-- FLOATING DOCK -->
     <div class="dock-holder">
       <nav class="island-dock">
-        <a href="#" class="dock-brand">JJ</a>
+        <!-- Secret Trigger: Triple-click "JJ" to open the password prompt -->
+        <span class="dock-brand" id="secret-brand-trigger">JJ</span>
 
         <button class="nav-tab active" id="tab-ca" onclick="switchDomain('ca')">
           <span>✦</span> Chartered Accountant
@@ -898,7 +893,7 @@
     </div>
   </div>
 
-  <!-- OWNER: Add Article Modal -->
+  <!-- Add Article Modal -->
   <div class="reader-modal" id="new-article-modal" onclick="closeNewModalOnBackdrop(event)">
     <div class="reader-frame" style="max-width:620px;">
       <button class="close-btn" onclick="dismissNewModal()">✕</button>
@@ -967,7 +962,7 @@
       }
     }
 
-    // 4. Default Articles Database (Dynamic Storage in LocalStorage)
+    // 4. Articles Database
     const defaultMemos = [
       {
         id: 0,
@@ -1058,7 +1053,7 @@
 
     renderArticles();
 
-    // 5. Live Search Engine
+    // 5. Search
     function searchMemos(trackId, query) {
       const track = document.getElementById(trackId);
       const cards = track.querySelectorAll('.memo-card');
@@ -1070,7 +1065,7 @@
       });
     }
 
-    // 6. Kinetic Drag Carousel
+    // 6. Kinetic Carousel
     function scrollTrack(id, dir) {
       const el = document.getElementById(id);
       el.scrollBy({ left: dir === 'left' ? -380 : 380, behavior: 'smooth' });
@@ -1094,7 +1089,7 @@
       });
     });
 
-    // 7. Day / Night Switcher
+    // 7. Day / Night Atmosphere Switcher
     const themeBtn = document.getElementById('theme-btn');
     const doc = document.documentElement;
 
@@ -1127,23 +1122,45 @@
     function closeOnBackdrop(e) { if (e.target.id === 'reader-modal') dismissReader(); }
     function dismissReader() { document.getElementById('reader-modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-    // ================= 9. OWNER ENGINE: LIVE EDITING & IN-PLACE CMS =================
-    const MASTER_KEY = "admin123"; // Change this to your preferred private password
+    // ================= 9. INVISIBLE OWNER ACCESS ENGINE =================
+    
+    // Retrieve password or default to "admin123" on first launch
+    function getOwnerKey() {
+      return localStorage.getItem('jj_owner_key') || 'admin123';
+    }
+
+    function setOwnerKey(newKey) {
+      localStorage.setItem('jj_owner_key', newKey);
+    }
 
     function promptOwnerLogin() {
-      const pass = prompt("Enter Owner Passkey:");
-      if (pass === MASTER_KEY) {
+      const pass = prompt("Access Key:");
+      if (pass === getOwnerKey()) {
         enableOwnerMode();
       } else if (pass !== null) {
-        alert("Invalid Passkey.");
+        alert("Access Denied.");
       }
     }
 
-    // Shortcut: Ctrl+E or Cmd+E opens Owner prompt
+    // Trigger 1: Secret Key Combo (Ctrl+Shift+E or Cmd+Shift+E)
     window.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
         e.preventDefault();
         promptOwnerLogin();
+      }
+    });
+
+    // Trigger 2: Secret Triple-Click on "JJ" brand
+    let brandClicks = 0;
+    let brandTimer = null;
+    document.getElementById('secret-brand-trigger').addEventListener('click', () => {
+      brandClicks++;
+      clearTimeout(brandTimer);
+      if (brandClicks === 3) {
+        brandClicks = 0;
+        promptOwnerLogin();
+      } else {
+        brandTimer = setTimeout(() => { brandClicks = 0; }, 500);
       }
     });
 
@@ -1151,13 +1168,27 @@
       sessionStorage.setItem('jj_owner_authenticated', 'true');
       document.getElementById('owner-hud').classList.add('visible');
 
-      // Make all live-edit elements editable
       document.querySelectorAll('.live-edit').forEach(el => {
         el.contentEditable = "true";
         el.classList.add('editable-outline');
       });
 
-      alert("Owner Mode Active! Click on any headline or text to edit directly. Click '+ Add Article' to post new writings.");
+      alert("Owner Mode Active!\n- Click any headline or bio text to edit directly.\n- Click '+ Add Article' to write new dispatches.\n- Click 'Save Edits' when done.");
+    }
+
+    function changeOwnerPassword() {
+      const current = prompt("Enter current access key:");
+      if (current === getOwnerKey()) {
+        const nextKey = prompt("Enter new access key:");
+        if (nextKey && nextKey.trim().length >= 4) {
+          setOwnerKey(nextKey.trim());
+          alert("Key updated successfully! Remember your new key.");
+        } else if (nextKey !== null) {
+          alert("Key must be at least 4 characters.");
+        }
+      } else if (current !== null) {
+        alert("Incorrect current key.");
+      }
     }
 
     function logoutOwner() {
@@ -1176,10 +1207,9 @@
         savedTexts[el.id] = el.innerHTML;
       });
       localStorage.setItem('jj_live_texts', JSON.stringify(savedTexts));
-      alert("All text edits saved successfully to your website!");
+      alert("Changes saved live to your website!");
     }
 
-    // Load saved live edits on start
     window.addEventListener('DOMContentLoaded', () => {
       const savedTexts = JSON.parse(localStorage.getItem('jj_live_texts'));
       if (savedTexts) {
@@ -1194,7 +1224,7 @@
       }
     });
 
-    // Add Article Modal Functions
+    // Add Article Functions
     function openNewArticleModal() {
       document.getElementById('new-article-modal').style.display = 'grid';
     }
