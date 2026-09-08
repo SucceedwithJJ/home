@@ -3,911 +3,480 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JJ, CA | Financial Due Diligence & Leadership Advisory</title>
+  <title>JJ — CA, Due Diligence & Mindset</title>
   
-  <meta name="description" content="Chartered Accountant specializing in Buy-Side Due Diligence, Quality of Earnings, and High-Performance Executive Psychology." />
+  <meta name="description" content="Buy-side financial diligence and executive mindset architecture." />
 
-  <!-- Premium Editorial & Corporate Typography -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Warm Executive Daylight Canvas */
-      --bg: #F9F9FB;
-      --surface: #FFFFFF;
-      --surface-subtle: #F0F2F6;
-      --border: #E2E6EC;
-      --border-subtle: rgba(0, 0, 0, 0.05);
-      --text: #0E1318;
-      --text-muted: #566171;
-      --text-dim: #8E99A8;
-      --gold: #A37F46;
-      --gold-subtle: rgba(163, 127, 70, 0.1);
-      --navy: #0F172A;
-      --nav-bg: rgba(249, 249, 251, 0.88);
-      --card-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.06);
-      --card-hover-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --bg: #F5EFEB;
+      --card: #FFFFFF;
+      --border: rgba(0, 0, 0, 0.08);
+      --text: #18181B;
+      --muted: #71717A;
+      --accent: #FF5533;
+      --accent-rgb: 255, 85, 51;
+      --slider-nav: rgba(0,0,0,0.06);
+      --shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      --spring: cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     [data-theme="dark"] {
-      /* Obsidian & Champagne Luxury Night Canvas */
-      --bg: #0A0D12;
-      --surface: #11151D;
-      --surface-subtle: #171D27;
-      --border: #1E2634;
-      --border-subtle: rgba(255, 255, 255, 0.05);
-      --text: #F3F5F8;
-      --text-muted: #95A0B0;
-      --text-dim: #5C6778;
-      --gold: #C5A059;
-      --gold-subtle: rgba(197, 160, 89, 0.12);
-      --navy: #38BDF8;
-      --nav-bg: rgba(10, 13, 18, 0.85);
-      --card-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.7);
-      --card-hover-shadow: 0 20px 45px -10px rgba(197, 160, 89, 0.15);
+      --bg: #0C0D10;
+      --card: #15171C;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #F4F4F5;
+      --muted: #A1A1AA;
+      --accent: #FF5533;
+      --accent-rgb: 255, 85, 51;
+      --slider-nav: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: 'Inter', -apple-system, sans-serif;
-      line-height: 1.65;
-      transition: background-color 0.4s ease, color 0.4s ease;
-      overflow-x: hidden;
-    }
-
-    /* Ambient Spatial Backdrop */
-    .ambient-glow {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 480px;
-      background: radial-gradient(circle at center, var(--gold-subtle) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Progress Wire */
-    #reading-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: var(--gold);
-      width: 0%;
-      z-index: 1100;
-      transition: width 0.1s ease-out;
-    }
-
-    /* Navigation Dock */
-    nav {
-      position: sticky;
-      top: 0;
-      background: var(--nav-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-      padding: 1.1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand-group {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border: 1px solid var(--gold);
-      border-radius: 6px;
-      display: grid;
-      place-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--gold);
-      background: var(--gold-subtle);
-    }
-
-    .brand-text h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      line-height: 1.1;
-    }
-
-    .brand-text span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-dim);
       font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-bottom: 6rem;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .nav-link {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .nav-link:hover { color: var(--gold); }
-
-    .theme-button {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: grid;
-      place-content: center;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    .theme-button:hover {
-      border-color: var(--gold);
-      transform: scale(1.05);
-    }
-
-    /* Container Standard */
     .container {
-      max-width: 1140px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 1.5rem;
-      position: relative;
-      z-index: 1;
     }
 
-    /* Hero Editorial Section */
-    .hero {
-      padding: 6.5rem 0 4.5rem;
-      text-align: center;
-    }
-
-    .authority-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.4rem 1.1rem;
-      background: var(--gold-subtle);
-      border: 1px solid var(--gold);
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      margin-bottom: 2rem;
-    }
-
-    .pulse {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.75rem, 5.5vw, 4.75rem);
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      max-width: 980px;
-      margin: 0 auto 1.8rem;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
-      font-weight: 500;
-    }
-
-    .hero-desc {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 720px;
-      margin: 0 auto 2.8rem;
-      line-height: 1.75;
-      font-weight: 400;
-    }
-
-    .hero-ctas {
+    /* 1. FLOATING MAGNETIC DOCK (Ishan Style) */
+    .dock-wrapper {
+      position: sticky;
+      top: 1.5rem;
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      z-index: 1000;
+      margin: 1.5rem 0 3.5rem;
+    }
+    .dock {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.6rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: var(--shadow);
+    }
+    [data-theme="dark"] .dock { background: rgba(21, 23, 28, 0.7); }
+
+    .dock a, .dock button {
+      padding: 0.5rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 30px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .dock a:hover, .dock button:hover {
+      color: var(--text);
+      background: rgba(0,0,0,0.04);
+    }
+    [data-theme="dark"] .dock a:hover { background: rgba(255,255,255,0.06); }
+    .dock a.active {
+      color: var(--text);
+      background: var(--card);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
 
-    .btn-gold {
-      background: var(--gold);
-      color: #0A0D12;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: var(--transition);
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 0 4rem;
+    }
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-gold:hover {
-      filter: brightness(1.1);
-      transform: translateY(-2px);
-    }
-
-    .btn-ghost {
-      background: var(--surface);
-      color: var(--text);
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 6px;
-      text-decoration: none;
+      background: var(--card);
       border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .btn-ghost:hover {
-      border-color: var(--gold);
-      transform: translateY(-2px);
-    }
-
-    /* Authority Metrics Strip */
-    .metrics-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin: 2rem 0 6rem;
-    }
-
-    .metric-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition);
-    }
-    .metric-item:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px);
-    }
-
-    .metric-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .metric-lbl {
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin-bottom: 1.5rem;
     }
-
-    /* Practice Areas (Dual Pillars) */
-    .section-head {
-      text-align: center;
-      margin-bottom: 3.5rem;
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 10px #10B981;
     }
-
-    .section-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .practice-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 6rem;
-    }
-
-    .practice-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 3rem;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
-    .practice-card:hover {
-      border-color: var(--gold);
-      box-shadow: var(--card-hover-shadow);
-      transform: translateY(-4px);
-    }
-
-    .practice-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      color: var(--gold);
-      font-weight: 700;
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
       margin-bottom: 1.2rem;
     }
-
-    .practice-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+    .hero h1 span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
-    .practice-card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .practice-card ul {
-      list-style: none;
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-    }
-
-    .practice-card ul li {
-      font-size: 0.92rem;
-      color: var(--text);
-      margin-bottom: 0.7rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .practice-card ul li::before {
-      content: "—";
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    /* Thought Leadership Dispatches (ChainGPT/Cobo Style Feed) */
-    .dispatches-section {
-      background: var(--surface-subtle);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 6rem 0;
-      margin-bottom: 6rem;
-    }
-
-    .feed-controls {
+    /* 2. PHYSICAL SLIDING PILL SWITCHER */
+    .slider-tabs-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
       gap: 1rem;
     }
+    .sliding-pill-track {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.35rem;
+      border-radius: 50px;
+      display: inline-flex;
+    }
+    .pill-indicator {
+      position: absolute;
+      top: 0.35rem;
+      left: 0.35rem;
+      height: calc(100% - 0.7rem);
+      background: var(--accent);
+      border-radius: 50px;
+      transition: transform 0.35s var(--spring), width 0.35s var(--spring);
+      z-index: 1;
+    }
+    .pill-btn {
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      border: none;
+      padding: 0.5rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.25s ease;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .pill-btn.active {
+      color: #FFFFFF;
+    }
 
-    .filter-pills {
+    /* SLIDER NAVIGATION ARROWS */
+    .slider-arrows {
       display: flex;
       gap: 0.5rem;
     }
-
-    .f-pill {
-      background: var(--surface);
+    .slide-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .f-pill.active, .f-pill:hover {
-      background: var(--gold);
-      color: #0A0D12;
-      border-color: var(--gold);
-    }
-
-    .feed-grid {
+      background: var(--card);
+      color: var(--text);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
+      place-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+    .slide-arrow:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: scale(1.05);
     }
 
-    .feed-card {
-      background: var(--surface);
+    /* 3. KINETIC HORIZONTAL CAROUSEL TRACK */
+    .carousel-viewport {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1.5rem;
+      scrollbar-width: none; /* Hide default scrollbar */
+    }
+    .carousel-viewport::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+    }
+
+    .slide-card {
+      width: 360px;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: var(--card-shadow);
+      border-radius: 24px;
+      padding: 2.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 400px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s var(--spring), border-color 0.3s ease;
       cursor: pointer;
-      transition: var(--transition);
-      text-decoration: none;
-      color: inherit;
+      user-select: none;
     }
-    .feed-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-      box-shadow: var(--card-hover-shadow);
+    .slide-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
     }
 
-    .card-kicker {
+    .card-top {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .card-tag {
+      font-family: 'Space Grotesk', monospace;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--gold);
-      margin-bottom: 1rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+    }
+    .read-time {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'Space Grotesk', monospace;
     }
 
     .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: 0.85rem;
-    }
-
-    .card-summary {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 2rem;
-    }
-
-    .card-footer {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      border-top: 1px solid var(--border);
-      padding-top: 1.2rem;
-    }
-
-    /* Modal Article Drawer */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(12px);
-      z-index: 2000;
-      display: none;
-      place-content: center;
-      padding: 1.5rem;
-    }
-
-    .modal-window {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      width: 100%;
-      max-width: 760px;
-      max-height: 85vh;
-      border-radius: 14px;
-      overflow-y: auto;
-      padding: 3.5rem;
-      box-shadow: var(--card-hover-shadow);
-      position: relative;
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      color: var(--text);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: grid;
-      place-content: center;
-      font-size: 1rem;
-    }
-
-    /* Consultation Intake */
-    .intake-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 4rem 3rem;
-      box-shadow: var(--card-shadow);
-      max-width: 860px;
-      margin: 0 auto 6rem;
-      text-align: center;
-    }
-
-    .intake-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.25;
       margin-bottom: 0.8rem;
     }
-
-    .intake-box p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-bottom: 2.5rem;
+    .card-excerpt {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
-    .intake-form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      text-align: left;
-    }
-
-    .full-span { grid-column: span 2; }
-
-    .form-ctrl label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .form-ctrl input, .form-ctrl select, .form-ctrl textarea {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
+    .card-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--text);
-      font-family: inherit;
-      font-size: 0.92rem;
-      outline: none;
-      transition: var(--transition);
+      margin-top: 1.8rem;
     }
-    .form-ctrl input:focus, .form-ctrl textarea:focus {
-      border-color: var(--gold);
+    .card-cta span {
+      transition: transform 0.2s ease;
+    }
+    .slide-card:hover .card-cta span {
+      transform: translateX(4px);
+      color: var(--accent);
     }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 3rem 0;
+    /* BOTTOM CONNECT BANNER */
+    .banner {
+      margin-top: 4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 2rem;
     }
-
-    footer a {
-      color: var(--text-muted);
+    .banner h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+    .banner p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .connect-btn {
+      background: var(--text);
+      color: var(--bg);
       text-decoration: none;
-      transition: var(--transition);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
     }
-    footer a:hover { color: var(--gold); }
+    .connect-btn:hover {
+      transform: scale(1.04);
+    }
 
-    @media (max-width: 860px) {
-      .metrics-bar { grid-template-columns: 1fr 1fr; }
-      .practice-grid { grid-template-columns: 1fr; }
-      .feed-grid { grid-template-columns: 1fr; }
-      .intake-form { grid-template-columns: 1fr; }
-      .full-span { grid-column: span 1; }
-      .hero { padding: 4rem 0 3rem; }
+    @media (max-width: 768px) {
+      .slide-card { width: 300px; min-height: 360px; }
+      .banner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <div id="reading-progress"></div>
-  <div class="ambient-glow"></div>
-
-  <!-- Top Executive Navigation -->
-  <nav>
-    <a href="#" class="brand-group">
-      <div class="brand-mark">JJ</div>
-      <div class="brand-text">
-        <h1>JJ &amp; Partners</h1>
-        <span>Chartered Accountant · Diligence &amp; Mindset</span>
-      </div>
-    </a>
-
-    <div class="nav-actions">
-      <a href="#practices" class="nav-link">Practices</a>
-      <a href="#intelligence" class="nav-link">Intelligence</a>
-      <a href="#intake" class="nav-link">Mandates</a>
-      <button class="theme-button" id="theme-btn" aria-label="Toggle Atmosphere">☼</button>
-    </div>
-  </nav>
-
-  <div class="container">
-
-    <!-- Hero Section -->
-    <header class="hero">
-      <div class="authority-pill">
-        <span class="pulse"></span>
-        <span>Buy-Side Diligence · Executive Psychology</span>
-      </div>
-      <h2 class="hero-title">
-        Audit the numbers to uncover deal truth.<br />
-        <em>Architect the mind to lead under pressure.</em>
-      </h2>
-      <p class="hero-desc">
-        A boutique personal practice led by a Chartered Accountant. Deconstructing middle-market Quality of Earnings (QoE) and coaching operators to make clear, high-conviction decisions with missing data.
-      </p>
-      <div class="hero-ctas">
-        <a href="#practices" class="btn-gold">Explore Core Disciplines ↘</a>
-        <a href="#intelligence" class="btn-ghost">Read Intelligence Notes</a>
-      </div>
-    </header>
-
-    <!-- Authority Metrics -->
-    <section class="metrics-bar">
-      <div class="metric-item">
-        <div class="metric-val">CA</div>
-        <div class="metric-lbl">Fiduciary Rigor</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">QoE</div>
-        <div class="metric-lbl">Buy-Side Diligence</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">1:1</div>
-        <div class="metric-lbl">Executive Mindset</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">100%</div>
-        <div class="metric-lbl">Independent Counsel</div>
-      </div>
-    </section>
-
-    <!-- Core Disciplines / Practice Areas -->
-    <section id="practices" style="padding-top: 2rem;">
-      <div class="section-head">
-        <div class="section-tag">Practices</div>
-        <h3 class="section-title">The Twin Pillars of High-Stakes Dealmaking</h3>
-      </div>
-
-      <div class="practice-grid">
-        <!-- Pillar 1: FDD -->
-        <div class="practice-card">
-          <div>
-            <div class="practice-num">DISCIPLINE 01</div>
-            <h3>Financial Due Diligence</h3>
-            <p>Institutional quality of earnings analysis to protect capital, challenge target assumptions, and uncover hidden balance sheet vulnerabilities before closing.</p>
-            <ul>
-              <li>Quality of Earnings (QoE) Analysis</li>
-              <li>Normalized Net Working Capital Pegs</li>
-              <li>Debt &amp; Debt-Like Items Identification</li>
-              <li>Post-Merger Value Leakage Audits</li>
-            </ul>
-          </div>
-          <div style="margin-top: 2.5rem;">
-            <a href="#intake" class="btn-ghost" style="display: block; text-align: center;">Inquire for Mandates ↗</a>
-          </div>
-        </div>
-
-        <!-- Pillar 2: Mindset -->
-        <div class="practice-card">
-          <div>
-            <div class="practice-num">DISCIPLINE 02</div>
-            <h3>Executive Mindset Architecture</h3>
-            <p>Cognitive coaching designed specifically for finance operators, partners, and founders confronting high-pressure transactions, cognitive overload, and high-stakes choices.</p>
-            <ul>
-              <li>Decision Frameworks Under Ambiguity</li>
-              <li>Overcoming Analytical Paralysis</li>
-              <li>Executive Burnout &amp; Mental Stamina</li>
-              <li>Founder Negotiation Psychology</li>
-            </ul>
-          </div>
-          <div style="margin-top: 2.5rem;">
-            <a href="#intake" class="btn-ghost" style="display: block; text-align: center;">Explore Discovery Session ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
+  <!-- 1. FLOATING ISHAN DOCK -->
+  <div class="dock-wrapper">
+    <nav class="dock">
+      <a href="#" class="active">JJ</a>
+      <a href="#writings">Intelligence</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
+      <button id="theme-toggle" aria-label="Toggle Theme">☼</button>
+    </nav>
   </div>
-
-  <!-- Publications & Intelligence (LinkedIn Funnel) -->
-  <section class="dispatches-section" id="intelligence">
-    <div class="container">
-      <div class="feed-controls">
-        <div>
-          <div class="section-tag">Writings &amp; Notes</div>
-          <h3 class="section-title" style="font-size: 2.2rem;">Executive Intelligence</h3>
-        </div>
-
-        <div class="filter-pills">
-          <button class="f-pill active" onclick="filterFeed('all', this)">All Dispatches</button>
-          <button class="f-pill" onclick="filterFeed('fdd', this)">Financial Diligence</button>
-          <button class="f-pill" onclick="filterFeed('mind', this)">Mindset</button>
-        </div>
-      </div>
-
-      <div class="feed-grid">
-        
-        <!-- Post 01 -->
-        <div class="feed-card" data-cat="fdd" onclick="openArticle(0)">
-          <div>
-            <div class="card-kicker">
-              <span>Due Diligence</span>
-              <span>5 Min Read</span>
-            </div>
-            <h4 class="card-title">The Phantom EBITDA: Where Target CIMs Hide Margin Attrition</h4>
-            <p class="card-summary">Three subtle non-operating add-backs commonly slipped into middle-market books—and the audit trail required to normalize them.</p>
-          </div>
-          <div class="card-footer">
-            Read Complete Memo ↘
-          </div>
-        </div>
-
-        <!-- Post 02 -->
-        <div class="feed-card" data-cat="mind" onclick="openArticle(1)">
-          <div>
-            <div class="card-kicker">
-              <span>Mindset</span>
-              <span>4 Min Read</span>
-            </div>
-            <h4 class="card-title">The Analytical Paralyzer: Why Precision Kills Strategic Speed</h4>
-            <p class="card-summary">Auditors are wired for zero variance. Discover why executing with 70% data fidelity delivers higher asymmetric returns in executive leadership.</p>
-          </div>
-          <div class="card-footer">
-            Read Complete Memo ↘
-          </div>
-        </div>
-
-        <!-- Post 03 -->
-        <div class="feed-card" data-cat="fdd" onclick="openArticle(2)">
-          <div>
-            <div class="card-kicker">
-              <span>Due Diligence</span>
-              <span>6 Min Read</span>
-            </div>
-            <h4 class="card-title">Net Working Capital Pegs: Guarding the Purchase Price</h4>
-            <p class="card-summary">Preventing post-closing cash leakage caused by seasonal inventory build-ups and flawed trailing reference windows in purchase agreements.</p>
-          </div>
-          <div class="card-footer">
-            Read Complete Memo ↘
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <div class="container">
     
-    <!-- Engagement Intake Form -->
-    <section class="intake-box" id="intake">
-      <h2>Initiate Private Engagement</h2>
-      <p>Retain independent counsel for upcoming buy-side transaction diligence or arrange a confidential executive coaching consultation.</p>
-
-      <form class="intake-form" onsubmit="event.preventDefault(); alert('Inquiry recorded. We will respond within 24 hours.');">
-        <div class="form-ctrl">
-          <label>Your Name</label>
-          <input type="text" placeholder="e.g., Alexander Vance" required />
-        </div>
-        <div class="form-ctrl">
-          <label>Corporate Email</label>
-          <input type="email" placeholder="alexander@fund.com" required />
-        </div>
-        <div class="form-ctrl full-span">
-          <label>Engagement Focus</label>
-          <select>
-            <option>Buy-Side Financial Due Diligence (FDD)</option>
-            <option>Executive Mindset Coaching (1-on-1)</option>
-            <option>Private Workshop / Cohort Inquiry</option>
-          </select>
-        </div>
-        <div class="form-ctrl full-span">
-          <label>Deal Timeline or Coaching Context</label>
-          <textarea rows="4" placeholder="Briefly outline your transaction scope or objectives..."></textarea>
-        </div>
-        <div class="full-span">
-          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Submit Confidential Inquiry ↗</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div>© <span id="yr"></span> JJ &amp; Partners. All rights reserved. | Chartered Accountant</div>
-      <div>
-        <a href="https://linkedin.com" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="badge">
+        <span class="pulse"></span>
+        <span>Chartered Accountant · FDD Specialist</span>
       </div>
-    </footer>
+      <h1>Audit the numbers.<br /><span>Calibrate the mindset.</span></h1>
+      <p>Buy-side financial due diligence and Quality of Earnings by day. Cognitive clarity and high-stakes decision architecture by night.</p>
+    </header>
 
-  </div>
+    <!-- 2. SLIDING CAROUSEL HEADER -->
+    <div class="slider-tabs-container" id="writings">
+      <!-- Physical Sliding Pill Toggle -->
+      <div class="sliding-pill-track">
+        <div class="pill-indicator" id="pill-indicator"></div>
+        <button class="pill-btn active" onclick="filterSlider('all', this)">All Writings</button>
+        <button class="pill-btn" onclick="filterSlider('fdd', this)">Due Diligence</button>
+        <button class="pill-btn" onclick="filterSlider('mind', this)">Mindset</button>
+      </div>
 
-  <!-- Reader Modal Window -->
-  <div class="modal-backdrop" id="modal-box" onclick="closeArticleModal(event)">
-    <div class="modal-window" id="modal-inner">
-      <button class="modal-close-btn" onclick="dismissModal()">✕</button>
-      <div id="modal-content-area"></div>
+      <!-- Left / Right Slide Arrows -->
+      <div class="slider-arrows">
+        <button class="slide-arrow" onclick="slideCarousel('left')" aria-label="Slide Left">←</button>
+        <button class="slide-arrow" onclick="slideCarousel('right')" aria-label="Slide Right">→</button>
+      </div>
     </div>
+
+    <!-- 3. KINETIC HORIZONTAL CAROUSEL -->
+    <div class="carousel-viewport" id="carousel">
+      <div class="carousel-track">
+        
+        <!-- Slide 1: FDD -->
+        <div class="slide-card" data-cat="fdd" onclick="window.open('https://linkedin.com', '_blank')">
+          <div>
+            <div class="card-top">
+              <span class="card-tag">Due Diligence</span>
+              <span class="read-time">5 MIN READ</span>
+            </div>
+            <h2 class="card-title">The Phantom EBITDA: Where Target CIMs Mask Attrition</h2>
+            <p class="card-excerpt">Three subtle operational add-backs commonly disguised as non-recurring adjustments in buy-side packages.</p>
+          </div>
+          <div class="card-cta">Read Dispatch <span>→</span></div>
+        </div>
+
+        <!-- Slide 2: Mindset -->
+        <div class="slide-card" data-cat="mind" onclick="window.open('https://linkedin.com', '_blank')">
+          <div>
+            <div class="card-top">
+              <span class="card-tag" style="color: #10B981; background: rgba(16,185,129,0.1);">Mindset</span>
+              <span class="read-time">4 MIN READ</span>
+            </div>
+            <h2 class="card-title">The Analytical Paralyzer: Why Precision Kills Strategic Speed</h2>
+            <p class="card-excerpt">Auditors are trained for zero variance. Why executing with 70% data fidelity yields higher asymmetric returns.</p>
+          </div>
+          <div class="card-cta">Read Dispatch <span>→</span></div>
+        </div>
+
+        <!-- Slide 3: FDD -->
+        <div class="slide-card" data-cat="fdd" onclick="window.open('https://linkedin.com', '_blank')">
+          <div>
+            <div class="card-top">
+              <span class="card-tag">Due Diligence</span>
+              <span class="read-time">6 MIN READ</span>
+            </div>
+            <h2 class="card-title">Working Capital Pegs: Guarding the Purchase Price</h2>
+            <p class="card-excerpt">Preventing post-closing cash leakage caused by seasonal inventory build-ups in purchase agreements.</p>
+          </div>
+          <div class="card-cta">Read Dispatch <span>→</span></div>
+        </div>
+
+        <!-- Slide 4: Mindset -->
+        <div class="slide-card" data-cat="mind" onclick="window.open('https://linkedin.com', '_blank')">
+          <div>
+            <div class="card-top">
+              <span class="card-tag" style="color: #10B981; background: rgba(16,185,129,0.1);">Mindset</span>
+              <span class="read-time">7 MIN READ</span>
+            </div>
+            <h2 class="card-title">The Psychology of Closing: Staying Grounded in the Deal Crucible</h2>
+            <p class="card-excerpt">How fatigue leads deal teams into uncalculated concessions during late-stage negotiations.</p>
+          </div>
+          <div class="card-cta">Read Dispatch <span>→</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. BOTTOM ACTION BANNER -->
+    <div class="banner">
+      <div>
+        <h3>Ready to partner or discuss?</h3>
+        <p>Available for select deal diligence advisory and executive 1-on-1 coaching.</p>
+      </div>
+      <a href="https://linkedin.com" target="_blank" class="connect-btn">Connect on LinkedIn ↗</a>
+    </div>
+
   </div>
 
   <script>
-    // 1. Reading Progress Bar
-    window.addEventListener('scroll', () => {
-      const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const s = document.documentElement.scrollTop;
-      document.getElementById('reading-progress').style.width = (s / h) * 100 + '%';
-    });
-
-    // 2. Intelligent Daylight/Dark Toggle
-    const themeBtn = document.getElementById('theme-btn');
-    const doc = document.documentElement;
-
-    function applyTheme(theme) {
-      doc.setAttribute('data-theme', theme);
-      localStorage.setItem('firm-theme-pref', theme);
-      themeBtn.textContent = theme === 'dark' ? '☼' : '☾';
+    // 1. Sliding Pill Tab Physics
+    const indicator = document.getElementById('pill-indicator');
+    
+    function updatePill(btn) {
+      indicator.style.width = btn.offsetWidth + 'px';
+      indicator.style.transform = `translateX(${btn.offsetLeft - btn.parentElement.offsetLeft - 5}px)`;
     }
 
-    const savedTheme = localStorage.getItem('firm-theme-pref') || 'dark';
-    applyTheme(savedTheme);
-
-    themeBtn.addEventListener('click', () => {
-      const cur = doc.getAttribute('data-theme');
-      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    // Set initial position
+    window.addEventListener('load', () => {
+      const activeBtn = document.querySelector('.pill-btn.active');
+      if (activeBtn) updatePill(activeBtn);
     });
 
-    // 3. Category Filtering
-    function filterFeed(category, btn) {
-      document.querySelectorAll('.f-pill').forEach(p => p.classList.remove('active'));
+    function filterSlider(cat, btn) {
+      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      updatePill(btn);
 
-      const cards = document.querySelectorAll('.feed-card');
+      const cards = document.querySelectorAll('.slide-card');
       cards.forEach(card => {
-        if (category === 'all' || card.dataset.cat === category) {
+        if (cat === 'all' || card.dataset.cat === cat) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -915,49 +484,25 @@
       });
     }
 
-    // 4. Modal Article Reader
-    const articles = [
-      {
-        kicker: "DUE DILIGENCE · 5 MIN READ",
-        title: "The Phantom EBITDA: Where Target CIMs Hide Margin Attrition",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;font-size:1.05rem;color:var(--text-muted);'>In lower middle-market M&A, the CIM (Confidential Information Memorandum) routinely claims run-rate adjustments that paint an overly optimistic earnings profile. Discretionary founder expenses, one-time software licenses, and supply chain rebates frequently mask genuine cost inflation.</p><p style='margin-bottom:1.2rem;line-height:1.8;font-size:1.05rem;color:var(--text-muted);'>As buy-side advisors, our task is not merely reconciling numbers back to the trial balance; it is probing the recurring operational reality. Normalizing EBITDA requires rebuilding the cost baseline with market-rate executive compensations, trailing freight variances, and genuine maintenance capital expenditures.</p>"
-      },
-      {
-        kicker: "MINDSET ARCHITECTURE · 4 MIN READ",
-        title: "The Analytical Paralyzer: Why Precision Kills Strategic Speed",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;font-size:1.05rem;color:var(--text-muted);'>Chartered Accountants and senior deal advisors are conditioned in environments where errors carry severe fiduciary and regulatory consequences. This instills a subconscious bias: that executing without 100% data fidelity represents an existential failure.</p><p style='margin-bottom:1.2rem;line-height:1.8;font-size:1.05rem;color:var(--text-muted);'>In corporate leadership and high-stakes negotiation, the cost of delayed action almost always exceeds the cost of a directional error. Operating with conviction at 70% data completeness is the fundamental dividing line between a technical advisor and an executive operator.</p>"
-      },
-      {
-        kicker: "TRANSACTION STRUCTURING · 6 MIN READ",
-        title: "Net Working Capital Pegs: Guarding the Purchase Price",
-        body: "<p style='margin-bottom:1.2rem;line-height:1.8;font-size:1.05rem;color:var(--text-muted);'>The Working Capital Reference Target (or 'Peg') is often negotiated in the final stretch of purchase agreement drafting, yet it possesses the power to silently shift millions of dollars post-closing dollar-for-dollar.</p><p style='margin-bottom:1.2rem;line-height:1.8;font-size:1.05rem;color:var(--text-muted);'>Relying on a static 12-month trailing average often penalizes rapidly expanding targets or gives undeserved cash concessions to cyclical businesses. We construct normalized working capital windows factoring in seasonality, deferred revenue dynamics, and extended supplier trade payables.</p>"
-      }
-    ];
-
-    function openArticle(idx) {
-      const art = articles[idx];
-      document.getElementById('modal-content-area').innerHTML = `
-        <div style="font-size:0.75rem;font-weight:700;color:var(--gold);margin-bottom:0.75rem;letter-spacing:0.08em;font-family:'Plus Jakarta Sans',sans-serif;">${art.kicker}</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;line-height:1.15;margin-bottom:1.5rem;">${art.title}</h3>
-        <div>${art.body}</div>
-        <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
-          <a href="https://linkedin.com" target="_blank" class="btn-gold" style="font-size:0.85rem;padding:0.6rem 1.2rem;">Discuss on LinkedIn ↗</a>
-        </div>
-      `;
-      document.getElementById('modal-box').style.display = 'grid';
-      document.body.style.overflow = 'hidden';
+    // 2. Carousel Arrow Sliding Mechanism
+    const carousel = document.getElementById('carousel');
+    function slideCarousel(dir) {
+      const scrollAmount = 380;
+      carousel.scrollBy({
+        left: dir === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
     }
 
-    function closeArticleModal(e) {
-      if (e.target.id === 'modal-box') dismissModal();
-    }
+    // 3. Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const doc = document.documentElement;
 
-    function dismissModal() {
-      document.getElementById('modal-box').style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    themeBtn.addEventListener('click', () => {
+      const isDark = doc.getAttribute('data-theme') === 'dark';
+      doc.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '☾' : '☼';
+    });
   </script>
 </body>
 </html>
